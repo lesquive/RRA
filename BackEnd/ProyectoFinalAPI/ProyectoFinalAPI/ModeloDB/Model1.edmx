@@ -1,0 +1,1158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Proyecto_FinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADOPCIONES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="animal_ID" Type="int" />
+          <Property Name="refugio_ID" Type="int" />
+          <Property Name="adoptante_ID" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ANIMALES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="especie" Type="varchar" MaxLength="255" />
+          <Property Name="raza" Type="varchar" MaxLength="255" />
+          <Property Name="edad" Type="int" />
+          <Property Name="estado_salud" Type="varchar" MaxLength="255" />
+          <Property Name="refugio_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="DONACIONES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="refugio_ID" Type="int" />
+          <Property Name="donante_ID" Type="int" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="ERRORES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="error" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="IMAGENES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="usuario_id" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="extension" Type="varchar" MaxLength="255" />
+          <Property Name="url" Type="varchar" MaxLength="255" />
+          <Property Name="imagen" Type="image" />
+        </EntityType>
+        <EntityType Name="REFUGIOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="direccion" Type="varchar" MaxLength="255" />
+          <Property Name="capacidad" Type="int" />
+          <Property Name="cantidad_anim" Type="int" />
+          <Property Name="contacto_ID" Type="int" />
+          <Property Name="telefono" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TESTIMONIOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="usuario_id" Type="int" />
+          <Property Name="mensaje" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="255" />
+          <Property Name="apellido" Type="varchar" MaxLength="255" />
+          <Property Name="edad" Type="int" />
+          <Property Name="telefono" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="usuario" Type="varchar" MaxLength="255" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+          <Property Name="role" Type="int" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIOS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="voluntario_ID" Type="int" />
+          <Property Name="disponibilidad" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__ADOPCION__adopta__4BAC3F29">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="adoptante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__adopta__5FB337D6">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="adoptante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__adopta__6E01572D">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="adoptante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__animal__6A30C649">
+          <End Role="ANIMALES" Type="Self.ANIMALES" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMALES">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="animal_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__animal__6C190EBB">
+          <End Role="ANIMALES" Type="Self.ANIMALES" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMALES">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="animal_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__refugi__6D0D32F4">
+          <End Role="REFUGIOS" Type="Self.REFUGIOS" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REFUGIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="refugio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ANIMAL__refugio___66603565">
+          <End Role="REFUGIOS" Type="Self.REFUGIOS" Multiplicity="0..1" />
+          <End Role="ANIMALES" Type="Self.ANIMALES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REFUGIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ANIMALES">
+              <PropertyRef Name="refugio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__donant__48CFD27E">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="donante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__donant__5CD6CB2B">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="donante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__donant__68487DD7">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="donante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__refugi__6FE99F9F">
+          <End Role="REFUGIOS" Type="Self.REFUGIOS" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REFUGIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="refugio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IMAGENES__usuari__6477ECF3">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="IMAGENES" Type="Self.IMAGENES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IMAGENES">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IMAGENES__usuari__74AE54BC">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="IMAGENES" Type="Self.IMAGENES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IMAGENES">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REFUGIO__contact__4D94879B">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="REFUGIOS" Type="Self.REFUGIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REFUGIOS">
+              <PropertyRef Name="contacto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REFUGIO__contact__619B8048">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="REFUGIOS" Type="Self.REFUGIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REFUGIOS">
+              <PropertyRef Name="contacto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REFUGIO__contact__70DDC3D8">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="REFUGIOS" Type="Self.REFUGIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REFUGIOS">
+              <PropertyRef Name="contacto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TESTIMONI__usuar__4F7CD00D">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="TESTIMONIOS" Type="Self.TESTIMONIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TESTIMONIOS">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TESTIMONI__usuar__6383C8BA">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="TESTIMONIOS" Type="Self.TESTIMONIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TESTIMONIOS">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TESTIMONI__usuar__73BA3083">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="TESTIMONIOS" Type="Self.TESTIMONIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TESTIMONIOS">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__role__72C60C4A">
+          <End Role="ROLES" Type="Self.ROLES" Multiplicity="0..1" />
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTARI__volun__47DBAE45">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="VOLUNTARIOS" Type="Self.VOLUNTARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VOLUNTARIOS">
+              <PropertyRef Name="voluntario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTARI__volun__5BE2A6F2">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="VOLUNTARIOS" Type="Self.VOLUNTARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VOLUNTARIOS">
+              <PropertyRef Name="voluntario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTARI__volun__6754599E">
+          <End Role="USUARIOS" Type="Self.USUARIOS" Multiplicity="0..1" />
+          <End Role="VOLUNTARIOS" Type="Self.VOLUNTARIOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VOLUNTARIOS">
+              <PropertyRef Name="voluntario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Proyecto_FinalModelStoreContainer">
+          <EntitySet Name="ADOPCIONES" EntityType="Self.ADOPCIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ANIMALES" EntityType="Self.ANIMALES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONACIONES" EntityType="Self.DONACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ERRORES" EntityType="Self.ERRORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMAGENES" EntityType="Self.IMAGENES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REFUGIOS" EntityType="Self.REFUGIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TESTIMONIOS" EntityType="Self.TESTIMONIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VOLUNTARIOS" EntityType="Self.VOLUNTARIOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ADOPCION__adopta__4BAC3F29" Association="Self.FK__ADOPCION__adopta__4BAC3F29">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__adopta__5FB337D6" Association="Self.FK__ADOPCION__adopta__5FB337D6">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__adopta__6E01572D" Association="Self.FK__ADOPCION__adopta__6E01572D">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__animal__6A30C649" Association="Self.FK__ADOPCION__animal__6A30C649">
+            <End Role="ANIMALES" EntitySet="ANIMALES" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__animal__6C190EBB" Association="Self.FK__ADOPCION__animal__6C190EBB">
+            <End Role="ANIMALES" EntitySet="ANIMALES" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__refugi__6D0D32F4" Association="Self.FK__ADOPCION__refugi__6D0D32F4">
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ANIMAL__refugio___66603565" Association="Self.FK__ANIMAL__refugio___66603565">
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+            <End Role="ANIMALES" EntitySet="ANIMALES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__donant__48CFD27E" Association="Self.FK__DONACION__donant__48CFD27E">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__donant__5CD6CB2B" Association="Self.FK__DONACION__donant__5CD6CB2B">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__donant__68487DD7" Association="Self.FK__DONACION__donant__68487DD7">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__refugi__6FE99F9F" Association="Self.FK__DONACION__refugi__6FE99F9F">
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IMAGENES__usuari__6477ECF3" Association="Self.FK__IMAGENES__usuari__6477ECF3">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="IMAGENES" EntitySet="IMAGENES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IMAGENES__usuari__74AE54BC" Association="Self.FK__IMAGENES__usuari__74AE54BC">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="IMAGENES" EntitySet="IMAGENES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REFUGIO__contact__4D94879B" Association="Self.FK__REFUGIO__contact__4D94879B">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REFUGIO__contact__619B8048" Association="Self.FK__REFUGIO__contact__619B8048">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REFUGIO__contact__70DDC3D8" Association="Self.FK__REFUGIO__contact__70DDC3D8">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TESTIMONI__usuar__4F7CD00D" Association="Self.FK__TESTIMONI__usuar__4F7CD00D">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="TESTIMONIOS" EntitySet="TESTIMONIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TESTIMONI__usuar__6383C8BA" Association="Self.FK__TESTIMONI__usuar__6383C8BA">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="TESTIMONIOS" EntitySet="TESTIMONIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TESTIMONI__usuar__73BA3083" Association="Self.FK__TESTIMONI__usuar__73BA3083">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="TESTIMONIOS" EntitySet="TESTIMONIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__role__72C60C4A" Association="Self.FK__USUARIO__role__72C60C4A">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTARI__volun__47DBAE45" Association="Self.FK__VOLUNTARI__volun__47DBAE45">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="VOLUNTARIOS" EntitySet="VOLUNTARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTARI__volun__5BE2A6F2" Association="Self.FK__VOLUNTARI__volun__5BE2A6F2">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="VOLUNTARIOS" EntitySet="VOLUNTARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTARI__volun__6754599E" Association="Self.FK__VOLUNTARI__volun__6754599E">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="VOLUNTARIOS" EntitySet="VOLUNTARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Proyecto_FinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADOPCIONE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="animal_ID" Type="Int32" />
+          <Property Name="refugio_ID" Type="Int32" />
+          <Property Name="adoptante_ID" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__ADOPCION__adopta__4BAC3F29" FromRole="ADOPCIONES" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK__ADOPCION__adopta__5FB337D6" FromRole="ADOPCIONES" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO2" Relationship="Self.FK__ADOPCION__adopta__6E01572D" FromRole="ADOPCIONES" ToRole="USUARIOS" />
+          <NavigationProperty Name="ANIMALE" Relationship="Self.FK__ADOPCION__animal__6A30C649" FromRole="ADOPCIONES" ToRole="ANIMALES" />
+          <NavigationProperty Name="ANIMALE1" Relationship="Self.FK__ADOPCION__animal__6C190EBB" FromRole="ADOPCIONES" ToRole="ANIMALES" />
+          <NavigationProperty Name="REFUGIO" Relationship="Self.FK__ADOPCION__refugi__6D0D32F4" FromRole="ADOPCIONES" ToRole="REFUGIOS" />
+        </EntityType>
+        <EntityType Name="ANIMALE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="especie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="raza" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="estado_salud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="refugio_ID" Type="Int32" />
+          <NavigationProperty Name="ADOPCIONES" Relationship="Self.FK__ADOPCION__animal__6A30C649" FromRole="ANIMALES" ToRole="ADOPCIONES" />
+          <NavigationProperty Name="ADOPCIONES1" Relationship="Self.FK__ADOPCION__animal__6C190EBB" FromRole="ANIMALES" ToRole="ADOPCIONES" />
+          <NavigationProperty Name="REFUGIO" Relationship="Self.FK__ANIMAL__refugio___66603565" FromRole="ANIMALES" ToRole="REFUGIOS" />
+        </EntityType>
+        <EntityType Name="DONACIONE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="refugio_ID" Type="Int32" />
+          <Property Name="donante_ID" Type="Int32" />
+          <Property Name="fecha" Type="DateTime" Precision="3" />
+          <Property Name="cantidad" Type="Int32" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__DONACION__donant__48CFD27E" FromRole="DONACIONES" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK__DONACION__donant__5CD6CB2B" FromRole="DONACIONES" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO2" Relationship="Self.FK__DONACION__donant__68487DD7" FromRole="DONACIONES" ToRole="USUARIOS" />
+          <NavigationProperty Name="REFUGIO" Relationship="Self.FK__DONACION__refugi__6FE99F9F" FromRole="DONACIONES" ToRole="REFUGIOS" />
+        </EntityType>
+        <EntityType Name="ERRORE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="error" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IMAGENE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="usuario_id" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="extension" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__IMAGENES__usuari__6477ECF3" FromRole="IMAGENES" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK__IMAGENES__usuari__74AE54BC" FromRole="IMAGENES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="REFUGIO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="capacidad" Type="Int32" />
+          <Property Name="cantidad_anim" Type="Int32" />
+          <Property Name="contacto_ID" Type="Int32" />
+          <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ADOPCIONES" Relationship="Self.FK__ADOPCION__refugi__6D0D32F4" FromRole="REFUGIOS" ToRole="ADOPCIONES" />
+          <NavigationProperty Name="ANIMALES" Relationship="Self.FK__ANIMAL__refugio___66603565" FromRole="REFUGIOS" ToRole="ANIMALES" />
+          <NavigationProperty Name="DONACIONES" Relationship="Self.FK__DONACION__refugi__6FE99F9F" FromRole="REFUGIOS" ToRole="DONACIONES" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__REFUGIO__contact__4D94879B" FromRole="REFUGIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK__REFUGIO__contact__619B8048" FromRole="REFUGIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO2" Relationship="Self.FK__REFUGIO__contact__70DDC3D8" FromRole="REFUGIOS" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="role1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIOS" Relationship="Self.FK__USUARIO__role__72C60C4A" FromRole="ROLES" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="TESTIMONIO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="usuario_id" Type="Int32" />
+          <Property Name="mensaje" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__TESTIMONI__usuar__4F7CD00D" FromRole="TESTIMONIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK__TESTIMONI__usuar__6383C8BA" FromRole="TESTIMONIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO2" Relationship="Self.FK__TESTIMONI__usuar__73BA3083" FromRole="TESTIMONIOS" ToRole="USUARIOS" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="usuario1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="role" Type="Int32" />
+          <NavigationProperty Name="ADOPCIONES" Relationship="Self.FK__ADOPCION__adopta__4BAC3F29" FromRole="USUARIOS" ToRole="ADOPCIONES" />
+          <NavigationProperty Name="ADOPCIONES1" Relationship="Self.FK__ADOPCION__adopta__5FB337D6" FromRole="USUARIOS" ToRole="ADOPCIONES" />
+          <NavigationProperty Name="ADOPCIONES2" Relationship="Self.FK__ADOPCION__adopta__6E01572D" FromRole="USUARIOS" ToRole="ADOPCIONES" />
+          <NavigationProperty Name="DONACIONES" Relationship="Self.FK__DONACION__donant__48CFD27E" FromRole="USUARIOS" ToRole="DONACIONES" />
+          <NavigationProperty Name="DONACIONES1" Relationship="Self.FK__DONACION__donant__5CD6CB2B" FromRole="USUARIOS" ToRole="DONACIONES" />
+          <NavigationProperty Name="DONACIONES2" Relationship="Self.FK__DONACION__donant__68487DD7" FromRole="USUARIOS" ToRole="DONACIONES" />
+          <NavigationProperty Name="IMAGENES" Relationship="Self.FK__IMAGENES__usuari__6477ECF3" FromRole="USUARIOS" ToRole="IMAGENES" />
+          <NavigationProperty Name="IMAGENES1" Relationship="Self.FK__IMAGENES__usuari__74AE54BC" FromRole="USUARIOS" ToRole="IMAGENES" />
+          <NavigationProperty Name="REFUGIOS" Relationship="Self.FK__REFUGIO__contact__4D94879B" FromRole="USUARIOS" ToRole="REFUGIOS" />
+          <NavigationProperty Name="REFUGIOS1" Relationship="Self.FK__REFUGIO__contact__619B8048" FromRole="USUARIOS" ToRole="REFUGIOS" />
+          <NavigationProperty Name="REFUGIOS2" Relationship="Self.FK__REFUGIO__contact__70DDC3D8" FromRole="USUARIOS" ToRole="REFUGIOS" />
+          <NavigationProperty Name="ROLE1" Relationship="Self.FK__USUARIO__role__72C60C4A" FromRole="USUARIOS" ToRole="ROLES" />
+          <NavigationProperty Name="TESTIMONIOS" Relationship="Self.FK__TESTIMONI__usuar__4F7CD00D" FromRole="USUARIOS" ToRole="TESTIMONIOS" />
+          <NavigationProperty Name="TESTIMONIOS1" Relationship="Self.FK__TESTIMONI__usuar__6383C8BA" FromRole="USUARIOS" ToRole="TESTIMONIOS" />
+          <NavigationProperty Name="TESTIMONIOS2" Relationship="Self.FK__TESTIMONI__usuar__73BA3083" FromRole="USUARIOS" ToRole="TESTIMONIOS" />
+          <NavigationProperty Name="VOLUNTARIOS" Relationship="Self.FK__VOLUNTARI__volun__47DBAE45" FromRole="USUARIOS" ToRole="VOLUNTARIOS" />
+          <NavigationProperty Name="VOLUNTARIOS1" Relationship="Self.FK__VOLUNTARI__volun__5BE2A6F2" FromRole="USUARIOS" ToRole="VOLUNTARIOS" />
+          <NavigationProperty Name="VOLUNTARIOS2" Relationship="Self.FK__VOLUNTARI__volun__6754599E" FromRole="USUARIOS" ToRole="VOLUNTARIOS" />
+        </EntityType>
+        <EntityType Name="VOLUNTARIO">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="voluntario_ID" Type="Int32" />
+          <Property Name="disponibilidad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK__VOLUNTARI__volun__47DBAE45" FromRole="VOLUNTARIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK__VOLUNTARI__volun__5BE2A6F2" FromRole="VOLUNTARIOS" ToRole="USUARIOS" />
+          <NavigationProperty Name="USUARIO2" Relationship="Self.FK__VOLUNTARI__volun__6754599E" FromRole="VOLUNTARIOS" ToRole="USUARIOS" />
+        </EntityType>
+        <Association Name="FK__ADOPCION__adopta__4BAC3F29">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="adoptante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__adopta__5FB337D6">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="adoptante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__adopta__6E01572D">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="adoptante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__animal__6A30C649">
+          <End Role="ANIMALES" Type="Self.ANIMALE" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMALES">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="animal_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__animal__6C190EBB">
+          <End Role="ANIMALES" Type="Self.ANIMALE" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ANIMALES">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="animal_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ADOPCION__refugi__6D0D32F4">
+          <End Role="REFUGIOS" Type="Self.REFUGIO" Multiplicity="0..1" />
+          <End Role="ADOPCIONES" Type="Self.ADOPCIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REFUGIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ADOPCIONES">
+              <PropertyRef Name="refugio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ANIMAL__refugio___66603565">
+          <End Role="REFUGIOS" Type="Self.REFUGIO" Multiplicity="0..1" />
+          <End Role="ANIMALES" Type="Self.ANIMALE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REFUGIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ANIMALES">
+              <PropertyRef Name="refugio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__donant__48CFD27E">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="donante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__donant__5CD6CB2B">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="donante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__donant__68487DD7">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="donante_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DONACION__refugi__6FE99F9F">
+          <End Role="REFUGIOS" Type="Self.REFUGIO" Multiplicity="0..1" />
+          <End Role="DONACIONES" Type="Self.DONACIONE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REFUGIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DONACIONES">
+              <PropertyRef Name="refugio_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IMAGENES__usuari__6477ECF3">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="IMAGENES" Type="Self.IMAGENE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IMAGENES">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__IMAGENES__usuari__74AE54BC">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="IMAGENES" Type="Self.IMAGENE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="IMAGENES">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REFUGIO__contact__4D94879B">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="REFUGIOS" Type="Self.REFUGIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REFUGIOS">
+              <PropertyRef Name="contacto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REFUGIO__contact__619B8048">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="REFUGIOS" Type="Self.REFUGIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REFUGIOS">
+              <PropertyRef Name="contacto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REFUGIO__contact__70DDC3D8">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="REFUGIOS" Type="Self.REFUGIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="REFUGIOS">
+              <PropertyRef Name="contacto_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USUARIO__role__72C60C4A">
+          <End Role="ROLES" Type="Self.ROLE" Multiplicity="0..1" />
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROLES">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="USUARIOS">
+              <PropertyRef Name="role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TESTIMONI__usuar__4F7CD00D">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="TESTIMONIOS" Type="Self.TESTIMONIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TESTIMONIOS">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TESTIMONI__usuar__6383C8BA">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="TESTIMONIOS" Type="Self.TESTIMONIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TESTIMONIOS">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TESTIMONI__usuar__73BA3083">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="TESTIMONIOS" Type="Self.TESTIMONIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TESTIMONIOS">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTARI__volun__47DBAE45">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="VOLUNTARIOS" Type="Self.VOLUNTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VOLUNTARIOS">
+              <PropertyRef Name="voluntario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTARI__volun__5BE2A6F2">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="VOLUNTARIOS" Type="Self.VOLUNTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VOLUNTARIOS">
+              <PropertyRef Name="voluntario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VOLUNTARI__volun__6754599E">
+          <End Role="USUARIOS" Type="Self.USUARIO" Multiplicity="0..1" />
+          <End Role="VOLUNTARIOS" Type="Self.VOLUNTARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIOS">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="VOLUNTARIOS">
+              <PropertyRef Name="voluntario_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Proyecto_FinalEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADOPCIONES" EntityType="Self.ADOPCIONE" />
+          <EntitySet Name="ANIMALES" EntityType="Self.ANIMALE" />
+          <EntitySet Name="DONACIONES" EntityType="Self.DONACIONE" />
+          <EntitySet Name="ERRORES" EntityType="Self.ERRORE" />
+          <EntitySet Name="IMAGENES" EntityType="Self.IMAGENE" />
+          <EntitySet Name="REFUGIOS" EntityType="Self.REFUGIO" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLE" />
+          <EntitySet Name="TESTIMONIOS" EntityType="Self.TESTIMONIO" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIO" />
+          <EntitySet Name="VOLUNTARIOS" EntityType="Self.VOLUNTARIO" />
+          <AssociationSet Name="FK__ADOPCION__adopta__4BAC3F29" Association="Self.FK__ADOPCION__adopta__4BAC3F29">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__adopta__5FB337D6" Association="Self.FK__ADOPCION__adopta__5FB337D6">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__adopta__6E01572D" Association="Self.FK__ADOPCION__adopta__6E01572D">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__animal__6A30C649" Association="Self.FK__ADOPCION__animal__6A30C649">
+            <End Role="ANIMALES" EntitySet="ANIMALES" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__animal__6C190EBB" Association="Self.FK__ADOPCION__animal__6C190EBB">
+            <End Role="ANIMALES" EntitySet="ANIMALES" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ADOPCION__refugi__6D0D32F4" Association="Self.FK__ADOPCION__refugi__6D0D32F4">
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+            <End Role="ADOPCIONES" EntitySet="ADOPCIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ANIMAL__refugio___66603565" Association="Self.FK__ANIMAL__refugio___66603565">
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+            <End Role="ANIMALES" EntitySet="ANIMALES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__donant__48CFD27E" Association="Self.FK__DONACION__donant__48CFD27E">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__donant__5CD6CB2B" Association="Self.FK__DONACION__donant__5CD6CB2B">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__donant__68487DD7" Association="Self.FK__DONACION__donant__68487DD7">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DONACION__refugi__6FE99F9F" Association="Self.FK__DONACION__refugi__6FE99F9F">
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+            <End Role="DONACIONES" EntitySet="DONACIONES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IMAGENES__usuari__6477ECF3" Association="Self.FK__IMAGENES__usuari__6477ECF3">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="IMAGENES" EntitySet="IMAGENES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__IMAGENES__usuari__74AE54BC" Association="Self.FK__IMAGENES__usuari__74AE54BC">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="IMAGENES" EntitySet="IMAGENES" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REFUGIO__contact__4D94879B" Association="Self.FK__REFUGIO__contact__4D94879B">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REFUGIO__contact__619B8048" Association="Self.FK__REFUGIO__contact__619B8048">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REFUGIO__contact__70DDC3D8" Association="Self.FK__REFUGIO__contact__70DDC3D8">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="REFUGIOS" EntitySet="REFUGIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USUARIO__role__72C60C4A" Association="Self.FK__USUARIO__role__72C60C4A">
+            <End Role="ROLES" EntitySet="ROLES" />
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TESTIMONI__usuar__4F7CD00D" Association="Self.FK__TESTIMONI__usuar__4F7CD00D">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="TESTIMONIOS" EntitySet="TESTIMONIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TESTIMONI__usuar__6383C8BA" Association="Self.FK__TESTIMONI__usuar__6383C8BA">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="TESTIMONIOS" EntitySet="TESTIMONIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TESTIMONI__usuar__73BA3083" Association="Self.FK__TESTIMONI__usuar__73BA3083">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="TESTIMONIOS" EntitySet="TESTIMONIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTARI__volun__47DBAE45" Association="Self.FK__VOLUNTARI__volun__47DBAE45">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="VOLUNTARIOS" EntitySet="VOLUNTARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTARI__volun__5BE2A6F2" Association="Self.FK__VOLUNTARI__volun__5BE2A6F2">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="VOLUNTARIOS" EntitySet="VOLUNTARIOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VOLUNTARI__volun__6754599E" Association="Self.FK__VOLUNTARI__volun__6754599E">
+            <End Role="USUARIOS" EntitySet="USUARIOS" />
+            <End Role="VOLUNTARIOS" EntitySet="VOLUNTARIOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Proyecto_FinalModelStoreContainer" CdmEntityContainer="Proyecto_FinalEntities1">
+          <EntitySetMapping Name="ADOPCIONES">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.ADOPCIONE">
+              <MappingFragment StoreEntitySet="ADOPCIONES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="animal_ID" ColumnName="animal_ID" />
+                <ScalarProperty Name="refugio_ID" ColumnName="refugio_ID" />
+                <ScalarProperty Name="adoptante_ID" ColumnName="adoptante_ID" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ANIMALES">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.ANIMALE">
+              <MappingFragment StoreEntitySet="ANIMALES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="especie" ColumnName="especie" />
+                <ScalarProperty Name="raza" ColumnName="raza" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="estado_salud" ColumnName="estado_salud" />
+                <ScalarProperty Name="refugio_ID" ColumnName="refugio_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONACIONES">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.DONACIONE">
+              <MappingFragment StoreEntitySet="DONACIONES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="refugio_ID" ColumnName="refugio_ID" />
+                <ScalarProperty Name="donante_ID" ColumnName="donante_ID" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ERRORES">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.ERRORE">
+              <MappingFragment StoreEntitySet="ERRORES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="error" ColumnName="error" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMAGENES">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.IMAGENE">
+              <MappingFragment StoreEntitySet="IMAGENES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="extension" ColumnName="extension" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REFUGIOS">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.REFUGIO">
+              <MappingFragment StoreEntitySet="REFUGIOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="capacidad" ColumnName="capacidad" />
+                <ScalarProperty Name="cantidad_anim" ColumnName="cantidad_anim" />
+                <ScalarProperty Name="contacto_ID" ColumnName="contacto_ID" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role1" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TESTIMONIOS">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.TESTIMONIO">
+              <MappingFragment StoreEntitySet="TESTIMONIOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+                <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VOLUNTARIOS">
+            <EntityTypeMapping TypeName="Proyecto_FinalModel.VOLUNTARIO">
+              <MappingFragment StoreEntitySet="VOLUNTARIOS">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="voluntario_ID" ColumnName="voluntario_ID" />
+                <ScalarProperty Name="disponibilidad" ColumnName="disponibilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
