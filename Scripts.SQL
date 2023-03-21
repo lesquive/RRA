@@ -399,13 +399,22 @@ INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
 VALUES (10, 1010, 'Me encanta apoyar a este refugio porque van más allá para ayudar a los animales necesitados.');
   
 ---------
--- VISTAS
+-- PROCEDURES
 ---------
 
 -- ANIMALES_NOT_IN_ADOPCIONES para ver cuales animales no estan adoptados
 
-CREATE VIEW [ANIMALES_NOT_IN_ADOPCIONES] AS
+USE [Proyecto_Final]
+GO
+
+CREATE PROCEDURE [dbo].[ANIMALES_NOT_IN_ADOPCIONES]
+	
+AS
+BEGIN
+
 SELECT [ANIMALES].*
 FROM [ANIMALES]
 LEFT JOIN [ADOPCIONES] ON [ANIMALES].[id] = [ADOPCIONES].[animal_ID]
 WHERE [ADOPCIONES].[animal_ID] IS NULL;
+
+END
