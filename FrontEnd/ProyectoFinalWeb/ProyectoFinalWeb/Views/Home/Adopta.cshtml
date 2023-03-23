@@ -15,13 +15,15 @@
                 {
                     <div class="pb-5">
                         <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                            <img class="img-fluid mb-4" src="">
+                            <img class="img-fluid mb-4" id="random-dog-image-@item.id" data-raza="@item.raza" alt="Random dog image" src="@item.imagen_URL">
                             <h6 class="text-uppercase">@item.nombre</h6>
                             <h6 class="text-primary mb-0">@item.especie</h6>
                             @if (item.edad > 1)
                             {
                                 <h6 class="text-primary mb-0">@item.edad años de edad</h6>
-                            } else {
+                            }
+                            else
+                            {
                                 <h6 class="text-primary mb-0">@item.edad año de edad</h6>
                             }
                             <div class="btn-action d-flex justify-content-center">

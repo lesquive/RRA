@@ -14,8 +14,9 @@ namespace ProyectoFinalWeb.Controllers
 
         public ActionResult Index()
         {
-            var resultado = homeModel.Adopta();
-            return View(resultado);
+            //var resultado = homeModel.Adopta();
+            //return View(resultado);
+            return View();
         }
 
         public ActionResult About()
