@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web;
 using ProyectoFinalWeb.Entities;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace ProyectoFinalWeb.Models
 {
@@ -27,7 +28,7 @@ namespace ProyectoFinalWeb.Models
             }
         }
 
-        public string randomDog()
+        public string RandomDog()
         {
             using (var client = new HttpClient())
             {
@@ -37,7 +38,11 @@ namespace ProyectoFinalWeb.Models
                 HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
-                    return respuesta.Content?.ReadAsStringAsync().Result;
+                {
+                    string jsonResponse = respuesta.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                    var data = JsonSerializer.Deserialize<dynamic>(jsonResponse);
+                    return data["message"];
+                }
 
                 return "No response";
             }

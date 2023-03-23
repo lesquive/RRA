@@ -1,4 +1,8 @@
-﻿@model IEnumerable<ProyectoFinalWeb.Entities.AnimalesEnt>
+﻿@model ProyectoFinalWeb.Models.HomeModel
+
+@{ 
+    var model = new ProyectoFinalWeb.Models.HomeModel();
+}
 
     <div class="container-fluid py-5">
         <div class="container">
@@ -7,11 +11,11 @@
                 <h1 class="display-5 text-uppercase mb-0">¡Adopta ahora!</h1>
             </div>
             <div class="owl-carousel product-carousel">
-                @foreach (var item in Model)
+                @foreach (var item in model.Adopta())
                 {
                     <div class="pb-5">
                         <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                            <img class="img-fluid mb-4" src="~/img/product-1.pn" alt="">
+                            <img class="img-fluid mb-4" src="">
                             <h6 class="text-uppercase">@item.nombre</h6>
                             <h6 class="text-primary mb-0">@item.especie</h6>
                             @if (item.edad > 1)
