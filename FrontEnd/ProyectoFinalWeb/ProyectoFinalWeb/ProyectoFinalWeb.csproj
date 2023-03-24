@@ -168,6 +168,8 @@
     <Content Include="img\about.jpg" />
     <Content Include="img\blog-1.jpg" />
     <Content Include="img\blog-2.jpg" />
+    <Content Include="img\conejo.jpg" />
+    <Content Include="img\dory.jpg" />
     <Content Include="img\hero.jpg" />
     <Content Include="img\offer.jpg" />
     <Content Include="img\product-1.png" />
