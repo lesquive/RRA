@@ -15,6 +15,48 @@
 
                     @using (Html.BeginForm("RegistrarUsuario", "Home", FormMethod.Post, new { @class = "pt-3" }))
                     {
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.nombre, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Nombre",
+                                @required = true,
+                                @type = "text",
+
+                            })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.apellido, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Apellido",
+                                @required = true,
+                                @type = "text",
+
+                            })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.edad, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Edad",
+                                @required = true,
+                                @type = "number",
+
+                            })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.telefono, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Telefono",
+                                @required = true,
+                                @type = "text",
+
+                            })
+                        </div>
+
                         <div class="form-group">
                             @Html.TextBoxFor(m => m.email, new
                             {
@@ -24,6 +66,28 @@
                            @onblur = "BuscarCorreo();"
                        })
                         </div>
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.usuario, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Usuario",
+                                @required = true,
+                                @type = "text",
+
+                            })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.role, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Role",
+                                @required = true,
+                                @type = "number",
+
+                            })
+                        </div>
+
                         <div class="form-group">
                             @Html.TextBoxFor(Model => Model.password, new
                             {
