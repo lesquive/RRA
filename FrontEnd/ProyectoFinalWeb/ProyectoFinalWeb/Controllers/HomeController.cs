@@ -34,6 +34,7 @@ namespace ProyectoFinalWeb.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult RegistrarUsuario()
         {

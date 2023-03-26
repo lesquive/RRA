@@ -46,5 +46,32 @@ namespace ProyectoFinalAPI.Models
                 return respuesta;
             }
         }
+
+        public List<TestimoniosEnt> ConsultarTestimonios()
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+
+
+            {
+                List<TestimoniosEnt> respuesta = new List<TestimoniosEnt>();
+                var datosBD = conexion.ConsultarTestimonios().ToList();
+
+                if (datosBD.Count > 0)
+                {
+                    foreach (var item in datosBD)
+                    {
+                        respuesta.Add(new TestimoniosEnt
+                        {
+                            nombre = item.nombre,
+                            apellido = item.apellido,
+                            mensaje = item.mensaje,
+                            //imagen_URL = item.especie == "Perro" ? perroService.RandomDog(item.raza) : item.especie == "Gato" ? gatoService.RandomCat() : "Blank"
+                        });
+                    }
+                }
+
+                return respuesta;
+            }
+        }
     }
 }
