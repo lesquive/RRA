@@ -474,6 +474,7 @@ end
 
 
 
+
 --------
 -- Consultar Testimonios  
 ---------
@@ -489,5 +490,3 @@ BEGIN
 	END
 	GO
 
-
-select * from USUARIOS
