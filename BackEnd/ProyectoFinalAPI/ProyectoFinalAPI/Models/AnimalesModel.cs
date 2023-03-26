@@ -3,17 +3,26 @@ using ProyectoFinalAPI.ModeloDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
+using System.Net.Http.Json;
+using System.Text.Json;
+using ProyectoFinalAPI.Servicios;
 
 namespace ProyectoFinalAPI.Models
 {
     public class AnimalesModel
     {
+
         public List<AnimalesEnt> ConsultarAnimalesParaAdopcion()
         {
             using (var conexion = new Proyecto_FinalEntities())
+    
+
             {
                 List<AnimalesEnt> respuesta = new List<AnimalesEnt>();
+                PerroService perroService = new PerroService();
+                GatoService gatoService = new GatoService();
                 var datosBD = conexion.ANIMALES_NOT_IN_ADOPCIONES().ToList();
 
                 if (datosBD.Count > 0)
@@ -29,7 +38,7 @@ namespace ProyectoFinalAPI.Models
                             edad = (int)item.edad,
                             estado_salud = item.estado_salud,
                             refugio_ID = (int)item.refugio_ID,
-                            imagen_URL = item.imagen_URL,
+                            imagen_URL = item.especie == "Perro" ? perroService.RandomDog(item.raza) : item.especie == "Gato" ? gatoService.RandomCat() : "Blank"
     });
                     }
                 }
