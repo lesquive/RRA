@@ -470,3 +470,23 @@ BEGIN
 SELECT id, nombre, apellido, edad, telefono, email, usuario, password, role, estado FROM dbo.USUARIOS
 
 end
+
+
+
+
+
+--------
+-- Consultar Testimonios  
+---------
+
+CREATE PROCEDURE [dbo].[ConsultarTestimonios]
+
+AS 
+BEGIN
+	SELECT USUARIOS.nombre, USUARIOS.apellido, TESTIMONIOS.mensaje
+    FROM USUARIOS
+    INNER JOIN TESTIMONIOS ON USUARIOS.id = TESTIMONIOS.usuario_id;
+
+	END
+	GO
+
