@@ -470,6 +470,3 @@ BEGIN
 SELECT id, nombre, apellido, edad, telefono, email, usuario, password, role, estado FROM dbo.USUARIOS
 
 end
-
-
-select * from USUARIOS
