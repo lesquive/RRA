@@ -1,50 +1,54 @@
-﻿@model ProyectoFinalWeb.Models.HomeModel
+﻿
 
-@{ 
+@model ProyectoFinalWeb.Models.HomeModel
+
+@{
     var model = new ProyectoFinalWeb.Models.HomeModel();
+
 }
 
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">¡Adopta a tu nuevo mejor amigo hoy mismo! Encuentra tu mascota ideal en nuestro sitio web de adopción de mascotas y dales la oportunidad de tener una vida feliz y amorosa en un hogar lleno de cariño.</h6>
-                <h1 class="display-5 text-uppercase mb-0">¡Adopta ahora!</h1>
-            </div>
-            <div class="owl-carousel product-carousel">
-                @foreach (var item in model.Adopta())
-                {
-                    <div class="pb-5">
-                        <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                            @if (@item.especie == "Pez")
-                            {
-                                <img class="img-fluid mb-4" id="random-animal-image-@item.id" data-raza="@item.raza" alt="Random animal image" src="~/img/dory.jpg">
-                            }
-                            else if (@item.especie == "Conejo")
-                            {
-                                <img class="img-fluid mb-4" id="random-animal-image-@item.id" data-raza="@item.raza" alt="Random animal image" src="~/img/conejo.jpg">
-                            }
-                            else
-                            {
-                                <img class="img-fluid mb-4" id="random-animal-image-@item.id" data-raza="@item.raza" alt="Random animal image" src="@item.imagen_URL">
-                            }
-                            <h6 class="text-uppercase">@item.nombre</h6>
-                            <h6 class="text-primary mb-0">@item.especie</h6>
-                            <h6 class="text-primary mb-0">@item.raza</h6>
-                            @if (item.edad > 1)
-                            {
-                                <h6 class="text-primary mb-0">@item.edad años de edad</h6>
-                            }
-                            else
-                            {
-                                <h6 class="text-primary mb-0">@item.edad año de edad</h6>
-                            }
-                            <div class="btn-action d-flex justify-content-center">
-                                <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
-                                <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
-                            </div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+            <h6 class="text-primary text-uppercase">¡Adopta a tu nuevo mejor amigo hoy mismo! Encuentra tu mascota ideal en nuestro sitio web de adopción de mascotas y dales la oportunidad de tener una vida feliz y amorosa en un hogar lleno de cariño.</h6>
+            <h1 class="display-5 text-uppercase mb-0">¡Adopta ahora!</h1>
+        </div>
+        <div class="owl-carousel product-carousel">
+            @foreach (var item in model.Adopta())
+            {
+                <div class="pb-5">
+                    <div class="product-item position-relative bg-light d-flex flex-column text-center">
+                        @if (@item.especie == "Pez")
+                        {
+                            <img class="img-fluid mb-4" id="random-animal-image-@item.id" data-raza="@item.raza" alt="Random animal image" src="~/img/dory.jpg">
+                        }
+                        else if (@item.especie == "Conejo")
+                        {
+                            <img class="img-fluid mb-4" id="random-animal-image-@item.id" data-raza="@item.raza" alt="Random animal image" src="~/img/conejo.jpg">
+                        }
+                        else
+                        {
+                            <img class="img-fluid mb-4" id="random-animal-image-@item.id" data-raza="@item.raza" alt="Random animal image" src="@item.imagen_URL">
+                        }
+                        <h6 class="text-uppercase">@item.nombre</h6>
+                        <h6 class="text-primary mb-0">@item.especie</h6>
+                        <h6 class="text-primary mb-0">@item.raza</h6>
+                        @if (item.edad > 1)
+                        {
+                            <h6 class="text-primary mb-0">@item.edad años de edad</h6>
+                        }
+                        else
+                        {
+                            <h6 class="text-primary mb-0">@item.edad año de edad</h6>
+                        }
+                        <div class="btn-action d-flex justify-content-center">
+                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
+</div>

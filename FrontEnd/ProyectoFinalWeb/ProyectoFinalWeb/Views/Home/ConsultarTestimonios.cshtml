@@ -1,0 +1,31 @@
+﻿@model ProyectoFinalWeb.Models.HomeModel
+
+@{
+    var model = new ProyectoFinalWeb.Models.HomeModel();
+
+}
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+            <h1 class="display-5 text-uppercase mb-0">Testimonios</h1>
+        </div>
+        <div class="owl-carousel product-carousel">
+            @foreach (var item in model.ConsultarTestimonios())
+            {
+                <div class="pb-5">
+                    <div class="bg-light text-center p-4">
+                        <h5 class="text-primary mb-0">@item.nombre</h5>
+                        <h5 class="text-primary mb-0">@item.apellido</h5>
+                    </div>
+
+                    <div class="bg-light text-center p-4">
+                        <h6 class="text-primary mb-0">@item.mensaje</h6>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

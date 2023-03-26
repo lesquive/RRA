@@ -20,5 +20,14 @@ namespace ProyectoFinalAPI.Controllers
         {
             return model.ConsultarAnimalesParaAdopcion();
         }
+
+        //GET Testimonios de adopciones 
+
+        [HttpGet]
+        [Route("api/ConsultarTestimonios")]
+        public List<TestimoniosEnt> ConsultarTestimonios()
+        {
+            return model.ConsultarTestimonios();
+        }
     }
 }
