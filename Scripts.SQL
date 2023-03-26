@@ -58,7 +58,8 @@ CREATE TABLE [USUARIOS] (
   [email] varchar(255),
   [usuario] varchar(255),
   [password] varchar(255),
-  [role] int
+  [role] int,
+  [estado] bit
 )
 GO
 
@@ -418,3 +419,57 @@ LEFT JOIN [ADOPCIONES] ON [ANIMALES].[id] = [ADOPCIONES].[animal_ID]
 WHERE [ADOPCIONES].[animal_ID] IS NULL;
 
 END
+
+--------
+-- Registrar Usuario 
+---------
+
+CREATE PROCEDURE [dbo].[RegistrarUsuario]
+    @nombre varchar(255),
+	@apellido varchar(255),
+	@edad int,
+	@telefono varchar(255),
+	@email varchar(255),
+	@usuario varchar(255),
+	@password varchar(255),
+	@role int
+AS
+BEGIN
+
+	INSERT INTO USUARIOS (nombre, apellido, edad, telefono, email, usuario,password, role) 
+	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, @role);
+
+END
+GO
+
+CREATE PROCEDURE [dbo].[ValidarUsuario]
+	@email varchar(255),
+	@password varchar(255)
+AS
+BEGIN
+	
+	SELECT 
+		   @email,
+		   estado
+	  FROM dbo.USUARIOS
+	  WHERE @email = @email
+		AND @password		  = @password
+		AND estado			  = 1
+
+END
+GO
+
+
+CREATE PROCEDURE [dbo].[ConsultarUsuarios]
+
+
+AS
+BEGIN
+
+
+SELECT id, nombre, apellido, edad, telefono, email, usuario, password, role, estado FROM dbo.USUARIOS
+
+end
+
+
+select * from USUARIOS
