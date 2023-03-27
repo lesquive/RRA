@@ -69,7 +69,7 @@ namespace ProyectoFinalWeb.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(entidad);
-                string url = "https://localhost:44381/api/RegistrarUsuario";
+                string url = "https://localhost:44343/api/RegistrarUsuario";
                 HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
@@ -83,13 +83,23 @@ namespace ProyectoFinalWeb.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:44381/api/BuscarCorreo?correoValidar=" + correoValidar;
+                string url = "https://localhost:44343/api/BuscarCorreo?correoValidar=" + correoValidar;
                 HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
                     return respuesta.Content.ReadFromJsonAsync<string>().Result;
 
                 return "ERROR";
+            }
+        }
+
+        public void RecuperarContrasenna(UsuariosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44343//api/RecuperarContrasenna";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
             }
         }
 

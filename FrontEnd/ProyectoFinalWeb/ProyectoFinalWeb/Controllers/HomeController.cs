@@ -41,7 +41,7 @@ namespace ProyectoFinalWeb.Controllers
             {
                 return View();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return View("Index");
             }
@@ -63,7 +63,7 @@ namespace ProyectoFinalWeb.Controllers
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return View("Index");
@@ -74,6 +74,33 @@ namespace ProyectoFinalWeb.Controllers
         public ActionResult BuscarCorreo(string correoValidar)
         {
             return Json(homeModel.BuscarCorreo(correoValidar), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult RecuperarContrasenna()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult RecuperarContrasenna(UsuariosEnt entidad)
+        {
+            try
+            {
+                homeModel.RecuperarContrasenna(entidad);
+                return View("index");
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
         }
     }
 }

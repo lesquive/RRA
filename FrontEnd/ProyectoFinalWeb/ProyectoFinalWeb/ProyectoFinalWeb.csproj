@@ -153,6 +153,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\AnimalesEnt.cs" />
+    <Compile Include="Entities\UsuariosEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +161,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\ProyectoFinalWeb.dll" />
+    <Content Include="bin\ProyectoFinalWeb.pdb" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
@@ -204,6 +207,8 @@
     <Content Include="lib\waypoints\links.php" />
     <Content Include="lib\waypoints\waypoints.min.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\RecuperarUsuario.js" />
+    <Content Include="Scripts\RegistrarUsuarios.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -221,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -234,8 +240,11 @@
     <Content Include="lib\flaticon\font\_flaticon.scss" />
     <Content Include="lib\flaticon\license\license.pdf" />
     <Content Include="lib\owlcarousel\LICENSE" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Adopta.cshtml" />
+    <Content Include="Views\Home\RegistrarUsuario.cshtml" />
+    <Content Include="Views\Home\RecuperarContrasenna.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
