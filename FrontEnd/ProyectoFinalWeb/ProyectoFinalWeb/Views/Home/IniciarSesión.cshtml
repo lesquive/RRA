@@ -1,0 +1,62 @@
+﻿@model ProyectoFinalWeb.Entities.UsuariosEnt
+@{
+    ViewBag.Title = "IniciarSesión";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                    </div>
+
+                    <h4>Ingrese sus datos</h4>
+
+                    @using (Html.BeginForm("IniciarSesión", "Home", FormMethod.Post, new { @class = "pt-3" }))
+                    {
+
+                        
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.email, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Correo Electrónico",
+                                @required = true,
+                           @onblur = "BuscarCorreo();"
+                       })
+                        </div>
+
+                        
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.password, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Contraseña",
+                                @required = true,
+                                @type = "Password",
+                           @onblur = "ValidarConfirmacionContrasenna();"
+                            })
+                        </div>
+
+                        <div class="mt-3">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="submit" id="btnRegistrar" value="Registrar" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                    <input type="submit" id="btn¿Olvidó su contraseña?" value="¿Olvidó su contraseña?" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/FuncionesJS/ValidarUsuario.js"></script>

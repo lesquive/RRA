@@ -344,6 +344,7 @@
     <Content Include="Views\Home\Adopta.cshtml" />
     <Content Include="Views\Home\RegistrarUsuario.cshtml" />
     <Content Include="Views\Home\ConsultarTestimonios.cshtml" />
+    <Content Include="Views\Home\IniciarSesión.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

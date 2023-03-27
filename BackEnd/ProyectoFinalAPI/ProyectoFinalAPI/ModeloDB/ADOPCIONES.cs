@@ -10,16 +10,18 @@
 namespace ProyectoFinalAPI.ModeloDB
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class ANIMALES_NOT_IN_ADOPCIONES_Result
+    public partial class ADOPCIONES
     {
         public int id { get; set; }
-        public string nombre { get; set; }
-        public string especie { get; set; }
-        public string raza { get; set; }
-        public Nullable<int> edad { get; set; }
-        public string estado_salud { get; set; }
+        public Nullable<int> animal_ID { get; set; }
         public Nullable<int> refugio_ID { get; set; }
-        public string imagen_URL { get; set; }
+        public Nullable<int> adoptante_ID { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
+    
+        public virtual USUARIOS USUARIOS { get; set; }
+        public virtual ANIMALES ANIMALES { get; set; }
+        public virtual REFUGIOS REFUGIOS { get; set; }
     }
 }

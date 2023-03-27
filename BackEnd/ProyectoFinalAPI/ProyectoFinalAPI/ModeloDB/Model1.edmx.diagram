@@ -4,40 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5d86d4702f314c5a8a643a05a3e6a582" Name="Diagram1">
-        <EntityTypeShape EntityType="Proyecto_FinalModel.ADOPCIONE" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.ANIMALE" Width="1.5" PointX="7.5" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.DONACIONE" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.ERRORE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.IMAGENE" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.REFUGIO" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.ROLE" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.TESTIMONIO" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.USUARIO" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Proyecto_FinalModel.VOLUNTARIO" Width="1.5" PointX="5.25" PointY="23.625" IsExpanded="true" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCION__adopta__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCION__adopta__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCION__adopta__6E01572D" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCION__animal__6A30C649" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCION__animal__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCION__refugi__6D0D32F4" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__ANIMAL__refugio___66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__DONACION__donant__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__DONACION__donant__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__DONACION__donant__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__DONACION__refugi__6FE99F9F" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__IMAGENES__usuari__6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__IMAGENES__usuari__74AE54BC" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__REFUGIO__contact__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__REFUGIO__contact__619B8048" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__REFUGIO__contact__70DDC3D8" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__USUARIO__role__72C60C4A" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__TESTIMONI__usuar__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__TESTIMONI__usuar__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__TESTIMONI__usuar__73BA3083" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__VOLUNTARI__volun__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__VOLUNTARI__volun__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="Proyecto_FinalModel.FK__VOLUNTARI__volun__6754599E" ManuallyRouted="false" />
+      <Diagram DiagramId="386393e7f0104857ac9dc27fecfab15e" Name="Diagram1">
+        <EntityTypeShape EntityType="Proyecto_FinalModel.ADOPCIONES" Width="1.5" PointX="9.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.ANIMALES" Width="1.5" PointX="7.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.DONACIONES" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.ERRORES" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.IMAGENES" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.REFUGIOS" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.ROLES" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.TESTIMONIOS" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.USUARIOS" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_FinalModel.VOLUNTARIOS" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCIONE__adopt__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCIONE__anima__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__ADOPCIONE__refug__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__ANIMALES__refugi__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__DONACIONE__donan__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__DONACIONE__refug__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__IMAGENES__usuari__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__REFUGIOS__contac__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__USUARIOS__role__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__TESTIMONI__usuar__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_FinalModel.FK__VOLUNTARI__volun__49C3F6B7" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

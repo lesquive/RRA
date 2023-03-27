@@ -71,6 +71,42 @@ namespace ProyectoFinalWeb.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult IniciarSesión()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult IniciarSesión(UsuariosEnt entidad)
+        {
+            try
+            {
+                if (homeModel.IniciarSesión(entidad) > 0)
+                {
+                    return View("Index");
+                }
+                else
+                {
+                    ViewBag.mensaje = "No se pudo iniciar sesión";
+                    return View("Index");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                return View("Index");
+            }
+        }
+
         [HttpPost]
         public ActionResult BuscarCorreo(string correoValidar)
         {

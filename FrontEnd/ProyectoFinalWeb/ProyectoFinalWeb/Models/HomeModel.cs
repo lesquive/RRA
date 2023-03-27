@@ -79,6 +79,21 @@ namespace ProyectoFinalWeb.Models
             }
         }
 
+        public int IniciarSesión(UsuariosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44381/api/RegistrarUsuario";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<int>().Result;
+
+                return 0;
+            }
+        }
+
         public string BuscarCorreo(string correoValidar)
         {
             using (var client = new HttpClient())
