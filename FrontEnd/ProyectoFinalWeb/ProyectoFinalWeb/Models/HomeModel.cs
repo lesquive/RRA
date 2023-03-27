@@ -93,6 +93,21 @@ namespace ProyectoFinalWeb.Models
             }
         }
 
+        public List<TestimoniosEnt> ConsultarTestimonios()
+        {
+            using (var client = new HttpClient())
+            {
+                string url = "https://localhost:44343/api/ConsultarTestimonios";
+
+                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
+                HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<List<TestimoniosEnt>>().Result;
+
+                return new List<TestimoniosEnt>();
+            }
+        }
 
     }
 }

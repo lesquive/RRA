@@ -152,6 +152,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Entities\TestimoniosEnt.cs" />
     <Compile Include="Entities\AnimalesEnt.cs" />
     <Compile Include="Entities\UsuariosEnt.cs" />
     <Compile Include="Global.asax.cs">
@@ -288,6 +289,9 @@
     <Content Include="lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="lib\waypoints\links.php" />
     <Content Include="lib\waypoints\waypoints.min.js" />
+    <Content Include="obj\Debug\ProyectoFinalWeb.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ProyectoFinalWeb.dll" />
+    <Content Include="obj\Debug\ProyectoFinalWeb.pdb" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\RegistrarUsuarios.js" />
     <Content Include="Web.config" />
@@ -307,6 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -331,8 +336,17 @@
     <Content Include="bin\roslyn\vbc.exe.config" />
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+<<<<<<< HEAD
+=======
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\ProyectoFinalWeb.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\ProyectoFinalWeb.csproj.CopyComplete" />
+    <Content Include="obj\Debug\ProyectoFinalWeb.csproj.CoreCompileInputs.cache" />
+>>>>>>> fff9f72dd2641b3d52d3dbc842c65fe8db509ce2
     <None Include="packages.config" />
     <Content Include="Views\Home\Adopta.cshtml" />
+    <Content Include="Views\Home\RegistrarUsuario.cshtml" />
+    <Content Include="Views\Home\ConsultarTestimonios.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
