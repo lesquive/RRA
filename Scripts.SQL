@@ -5,99 +5,104 @@ DROP DATABASE IF EXISTS Proyecto_Final;
 CREATE DATABASE Proyecto_Final;
 USE Proyecto_Final;
 
+
+
 ---------
 -- DB Diseno
 ---------
 
 CREATE TABLE [ANIMALES] (
-  [id] int PRIMARY KEY,
-  [nombre] varchar(255),
-  [especie] varchar(255),
-  [raza] varchar(255),
-  [edad] int,
-  [estado_salud] varchar(255),
-  [refugio_ID] int,
-  [imagen_URL] varchar(255)
+  [id] int PRIMARY KEY NOT NULL,
+  [nombre] varchar(255) NOT NULL,
+  [especie] varchar(255) NOT NULL,
+  [raza] varchar(255) NOT NULL,
+  [edad] int NOT NULL,
+  [estado_salud] varchar(255) NOT NULL,
+  [refugio_ID] int NOT NULL,
+  [imagen_URL] varchar(255) NOT NULL
 )
 GO
 
 CREATE TABLE [ADOPCIONES] (
-  [id] int PRIMARY KEY,
-  [animal_ID] int,
-  [refugio_ID] int,
-  [adoptante_ID] int,
-  [fecha] datetime
+  [id] int PRIMARY KEY NOT NULL,
+  [animal_ID] int NOT NULL,
+  [refugio_ID] int NOT NULL,
+  [adoptante_ID] int NOT NULL,
+  [fecha] datetime NOT NULL
 )
 GO
 
 CREATE TABLE [REFUGIOS] (
-  [id] int PRIMARY KEY,
-  [nombre] varchar(255),
-  [direccion] varchar(255),
-  [capacidad] int,
-  [cantidad_anim] int,
-  [contacto_ID] int,
-  [telefono] varchar(255),
-  [email] varchar(255)
+  [id] int PRIMARY KEY NOT NULL,
+  [nombre] varchar(255) NOT NULL,
+  [direccion] varchar(255) NOT NULL,
+  [capacidad] int NOT NULL,
+  [cantidad_anim] int NOT NULL,
+  [contacto_ID] int NOT NULL,
+  [telefono] varchar(255) NOT NULL,
+  [email] varchar(255)  NOT NULL
 )
 GO
 
 CREATE TABLE [VOLUNTARIOS] (
-  [id] int PRIMARY KEY,
-  [voluntario_ID] int,
-  [disponibilidad] varchar(255)
+  [id] int PRIMARY KEY NOT NULL,
+  [voluntario_ID] int NOT NULL,
+  [disponibilidad] varchar(255) NOT NULL
 )
 GO
 
+
+
 CREATE TABLE [USUARIOS] (
-  [id] int PRIMARY KEY,
-  [nombre] varchar(255),
-  [apellido] varchar(255),
-  [edad] int,
-  [telefono] varchar(255),
-  [email] varchar(255),
-  [usuario] varchar(255),
-  [password] varchar(255),
-  [role] int,
-  [estado] bit
+  [id] int PRIMARY KEY NOT NULL,
+  [nombre] varchar(255) NOT NULL,
+  [apellido] varchar(255) NOT NULL,
+  [edad] int NOT NULL,
+  [telefono] varchar(255) NOT NULL,
+  [email] varchar(255) NOT NULL,
+  [usuario] varchar(255) NOT NULL,
+  [password] varchar(255) NOT NULL,
+  [role] int NOT NULL,
+  [estado] bit NOT NULL
+
 )
 GO
 
 CREATE TABLE [ROLES] (
-  [id] int PRIMARY KEY,
-  [role] varchar(255)
+  [id] int PRIMARY KEY NOT NULL,
+  [role] varchar(255) NOT NULL
 )
 GO
 
 CREATE TABLE [DONACIONES] (
-  [id] int PRIMARY KEY,
-  [refugio_ID] int,
-  [donante_ID] int,
-  [fecha] datetime,
-  [cantidad] int
+  [id] int PRIMARY KEY NOT NULL,
+  [refugio_ID] int NOT NULL,
+  [donante_ID] int NOT NULL,
+  [fecha] datetime NOT NULL,
+  [cantidad] int NOT NULL
 )
 GO
 
 CREATE TABLE [ERRORES] (
-  [id] int PRIMARY KEY,
-  [error] varchar(255)
+  [id] int PRIMARY KEY NOT NULL,
+  [error] varchar(255) NOT NULL
 )
 GO
 
 CREATE TABLE [TESTIMONIOS] (
-  [id] int PRIMARY KEY,
-  [usuario_id] int,
-  [mensaje] varchar(255)
+  [id] int PRIMARY KEY NOT NULL,
+  [usuario_id] int NOT NULL,
+  [mensaje] varchar(255) NOT NULL
 )
 GO
 
 CREATE TABLE [IMAGENES] (
-  [id] int PRIMARY KEY,
-  [usuario_id] int,
-  [nombre] varchar(255),
-  [extension] varchar(255),
-  [url] varchar(255),
-  [imagen] varbinary(MAX)
+  [id] int PRIMARY KEY NOT NULL,
+  [usuario_id] int NOT NULL,
+  [nombre] varchar(255) NOT NULL,
+  [extension] varchar(255) NOT NULL,
+  [url] varchar(255) NOT NULL,
+  [imagen] varbinary(MAX) NOT NULL
 )
 GO
 
@@ -151,84 +156,84 @@ VALUES (2, 'User');
 ---------
 
 -- Registro 1
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1001, 'Juan', 'Perez', 28, '555-123-4567', 'juanperez@email.com', 'juanp', 'mypassword1', 1);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1001, 'Juan', 'Perez', 28, '555-123-4567', 'juanperez@email.com', 'juanp', 'mypassword1', 1,1);
 
 -- Registro 2
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1002, 'Maria', 'Gonzalez', 34, '555-234-5678', 'mariagonzalez@email.com', 'mariag', 'mypassword2', 1);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1002, 'Maria', 'Gonzalez', 34, '555-234-5678', 'mariagonzalez@email.com', 'mariag', 'mypassword2', 1,1);
 
 -- Registro 3
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1003, 'Carlos', 'Castro', 19, '555-345-6789', 'carloscastro@email.com', 'carlosc', 'mypassword3', 1);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1003, 'Carlos', 'Castro', 19, '555-345-6789', 'carloscastro@email.com', 'carlosc', 'mypassword3', 1,1);
 
 -- Registro 4
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1004, 'Ana', 'Rodriguez', 42, '555-456-7890', 'anarodriguez@email.com', 'anar', 'mypassword4', 1);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1004, 'Ana', 'Rodriguez', 42, '555-456-7890', 'anarodriguez@email.com', 'anar', 'mypassword4', 1,1);
 
 -- Registro 5
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1005, 'Pedro', 'Lopez', 25, '555-567-8901', 'pedrolopez@email.com', 'pedrol', 'mypassword5', 1);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1005, 'Pedro', 'Lopez', 25, '555-567-8901', 'pedrolopez@email.com', 'pedrol', 'mypassword5', 1,1);
 
 -- Registro 6
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1006, 'Sofia', 'Diaz', 31, '555-678-9012', 'sofiadiaz@email.com', 'sofiad', 'mypassword6', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1006, 'Sofia', 'Diaz', 31, '555-678-9012', 'sofiadiaz@email.com', 'sofiad', 'mypassword6', 2,1);
 
 -- Registro 7
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1007, 'Miguel', 'Ramirez', 37, '555-789-0123', 'miguelramirez@email.com', 'miguelr', 'mypassword7', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1007, 'Miguel', 'Ramirez', 37, '555-789-0123', 'miguelramirez@email.com', 'miguelr', 'mypassword7', 2,1);
 
 -- Registro 8
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1008, 'Laura', 'Sanchez', 22, '555-890-1234', 'laurasanchez@email.com', 'lauras', 'mypassword8', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1008, 'Laura', 'Sanchez', 22, '555-890-1234', 'laurasanchez@email.com', 'lauras', 'mypassword8', 2,1);
 
 -- Registro 9
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1009, 'Diego', 'Gutierrez', 29, '555-901-2345', 'diegogutierrez@email.com', 'diegog', 'mypassword9', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1009, 'Diego', 'Gutierrez', 29, '555-901-2345', 'diegogutierrez@email.com', 'diegog', 'mypassword9', 2,1);
 
 -- Registro 10
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1010, 'Carla', 'Lopez', 26, '555-012-3456', 'carlalopez@email.com', 'carlal', 'mypassword10', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1010, 'Carla', 'Lopez', 26, '555-012-3456', 'carlalopez@email.com', 'carlal', 'mypassword10', 2,1);
 
 -- Registro 11
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1011, 'Ana', 'García', 28, '8888-7777', 'ana.garcia@email.com', 'anagarcia', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1011, 'Ana', 'García', 28, '8888-7777', 'ana.garcia@email.com', 'anagarcia', 'password123', 2,1);
 
 -- Registro 12
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1012, 'Pedro', 'López', 35, '7777-6666', 'pedro.lopez@email.com', 'pedrol', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1012, 'Pedro', 'López', 35, '7777-6666', 'pedro.lopez@email.com', 'pedrol', 'password123', 2,1);
 
 -- Registro 13
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1013, 'María', 'Fernández', 45, '5555-4444', 'maria.fernandez@email.com', 'mariaf', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1013, 'María', 'Fernández', 45, '5555-4444', 'maria.fernandez@email.com', 'mariaf', 'password123', 2,1);
 
 -- Registro 14
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1014, 'Juan', 'Pérez', 27, '4444-3333', 'juan.perez@email.com', 'juanp', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1014, 'Juan', 'Pérez', 27, '4444-3333', 'juan.perez@email.com', 'juanp', 'password123', 2,1);
 
 -- Registro 15
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1015, 'Sofía', 'González', 33, '3333-2222', 'sofia.gonzalez@email.com', 'sofiag', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1015, 'Sofía', 'González', 33, '3333-2222', 'sofia.gonzalez@email.com', 'sofiag', 'password123', 2,1);
 
 -- Registro 16
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1016, 'Luis', 'Hernández', 22, '2222-1111', 'luis.hernandez@email.com', 'luish', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1016, 'Luis', 'Hernández', 22, '2222-1111', 'luis.hernandez@email.com', 'luish', 'password123', 2,1);
 
 -- Registro 17
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1017, 'Carolina', 'Martínez', 29, '1111-0000', 'carolina.martinez@email.com', 'carolinam', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1017, 'Carolina', 'Martínez', 29, '1111-0000', 'carolina.martinez@email.com', 'carolinam', 'password123', 2,1);
 
 -- Registro 18
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1018, 'Miguel', 'Sánchez', 40, '9999-8888', 'miguel.sanchez@email.com', 'miguels', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1018, 'Miguel', 'Sánchez', 40, '9999-8888', 'miguel.sanchez@email.com', 'miguels', 'password123', 2,1);
 
 -- Registro 19
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1019, 'Patricia', 'Castillo', 32, '8888-7777', 'patricia.castillo@email.com', 'patriciac', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1019, 'Patricia', 'Castillo', 32, '8888-7777', 'patricia.castillo@email.com', 'patriciac', 'password123', 2,1);
 
 -- Registro 20
-INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role) 
-VALUES (1020, 'Ricardo', 'Morales', 37, '7777-6666', 'ricardo.morales@email.com', 'ricardom', 'password123', 2);
+INSERT INTO USUARIOS (id, nombre, apellido, edad, telefono, email, usuario, password, role,estado) 
+VALUES (1020, 'Ricardo', 'Morales', 37, '7777-6666', 'ricardo.morales@email.com', 'ricardom', 'password123', 2,1);
 
 --------
 -- Refugios
@@ -399,6 +404,22 @@ VALUES (9, 1009, 'Adopté a mi perro de este refugio y se ha convertido en mi me
 INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
 VALUES (10, 1010, 'Me encanta apoyar a este refugio porque van más allá para ayudar a los animales necesitados.');
   
+--------
+-- Voluntarios
+---------
+  
+INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
+VALUES (1, 1012, '8am - 5pm martes a jueves ');
+INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
+VALUES (2, 1013, '7am - 3pm miercoles y viernes');
+INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
+VALUES (3, 1014, '2pm - 4pm lunes a viernes ');
+INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
+VALUES (4, 1015, '9am - 1pm miercoles y jueves');
+INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
+VALUES (5, 1016, '8pm - 11am martes a viernes ');
+
+
 ---------
 -- PROCEDURES
 ---------
@@ -423,7 +444,6 @@ END
 --------
 -- Registrar Usuario 
 ---------
-
 CREATE PROCEDURE [dbo].[RegistrarUsuario]
     @nombre varchar(255),
 	@apellido varchar(255),
@@ -459,6 +479,9 @@ BEGIN
 END
 GO
 
+--------
+-- Consultar Usuario  
+---------
 
 CREATE PROCEDURE [dbo].[ConsultarUsuarios]
 
@@ -470,11 +493,6 @@ BEGIN
 SELECT id, nombre, apellido, edad, telefono, email, usuario, password, role, estado FROM dbo.USUARIOS
 
 end
-
-
-
-
-
 --------
 -- Consultar Testimonios  
 ---------
@@ -490,3 +508,17 @@ BEGIN
 	END
 	GO
 
+
+--------
+-- Consultar Voluntarios 
+---------
+CREATE PROCEDURE [dbo].[ConsultarVoluntarios]
+
+AS 
+BEGIN
+	SELECT USUARIOS.nombre, USUARIOS.apellido, VOLUNTARIOS.disponibilidad
+    FROM USUARIOS
+    INNER JOIN VOLUNTARIOS ON USUARIOS.id = VOLUNTARIOS.voluntario_ID;
+
+	END
+	GO
