@@ -41,5 +41,6 @@ namespace ProyectoFinalAPI.Controllers
         {
             model.RecuperarContrasenna(entidad);
         }
+
     }
 }

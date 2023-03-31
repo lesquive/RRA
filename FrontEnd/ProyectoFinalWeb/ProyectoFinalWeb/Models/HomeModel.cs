@@ -102,7 +102,21 @@ namespace ProyectoFinalWeb.Models
                 HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
             }
         }
+        public List<VoluntariosEnt> ConsultarVoluntarios()
+        {
+            using (var client = new HttpClient())
+            {
+                string url = "https://localhost:44343/api/ConsultarVoluntarios";
 
+                //HttpContext.Current.Session["Token"].ToString();
+                HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<List<VoluntariosEnt>>().Result;
+
+                return new List<VoluntariosEnt>();
+            }
+        }
 
     }
 }

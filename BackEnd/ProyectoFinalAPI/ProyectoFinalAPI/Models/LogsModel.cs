@@ -48,6 +48,7 @@ namespace ProyectoFinalAPI.Models
                 if (respuesta != null)
                 {
                     respuesta.password = resulString;
+                    conexion.SaveChanges();
                 }
             }
         }

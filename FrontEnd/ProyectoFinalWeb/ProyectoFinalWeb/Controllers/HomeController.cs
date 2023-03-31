@@ -15,8 +15,6 @@ namespace ProyectoFinalWeb.Controllers
 
         public ActionResult Index()
         {
-            //var resultado = homeModel.Adopta();
-            //return View(resultado);
             return View();
         }
 
@@ -54,7 +52,7 @@ namespace ProyectoFinalWeb.Controllers
             {
                 if (homeModel.RegistrarUsuario(entidad) > 0)
                 {
-                    return View("Index");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {

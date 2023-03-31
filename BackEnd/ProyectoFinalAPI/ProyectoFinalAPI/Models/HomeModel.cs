@@ -89,8 +89,7 @@ namespace ProyectoFinalAPI.Models
 
 
                     modelLogs.ActualizarContrasenna(entidad, resultString);
-
-                    string Asunto = "CONTRASEÑA TEMPORAL";
+                    string Asunto = "RECUPERAR CONTRASEÑA";
                     string Body = "Su contraseña temporal es: <BR/> " + resultString;
                     modelLogs.EnviarCorreo(entidad.email, Asunto, Body);
 
