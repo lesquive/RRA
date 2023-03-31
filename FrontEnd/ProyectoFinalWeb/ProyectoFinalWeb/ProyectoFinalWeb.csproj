@@ -153,6 +153,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\AnimalesEnt.cs" />
+    <Compile Include="Entities\VoluntariosEnt.cs" />
     <Compile Include="Entities\UsuariosEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +246,7 @@
     <Content Include="Views\Home\Adopta.cshtml" />
     <Content Include="Views\Home\RegistrarUsuario.cshtml" />
     <Content Include="Views\Home\RecuperarContrasenna.cshtml" />
+    <Content Include="Views\Home\ConsultarVoluntarios.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
