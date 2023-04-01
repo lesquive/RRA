@@ -11,15 +11,17 @@ namespace ProyectoFinalAPI.ModeloDB
 {
     using System;
     
-    public partial class ANIMALES_NOT_IN_ADOPCIONES_Result
+    public partial class ConsultarUsuarios_Result
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public string especie { get; set; }
-        public string raza { get; set; }
+        public string apellido { get; set; }
         public Nullable<int> edad { get; set; }
-        public string estado_salud { get; set; }
-        public Nullable<int> refugio_ID { get; set; }
-        public string imagen_URL { get; set; }
+        public string telefono { get; set; }
+        public string email { get; set; }
+        public string usuario { get; set; }
+        public string password { get; set; }
+        public Nullable<int> role { get; set; }
+        public Nullable<bool> estado { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using ProyectoFinalAPI.Entities;
+using ProyectoFinalAPI.Entities;
 using ProyectoFinalAPI.ModeloDB;
 using System;
 using System.Collections.Generic;
@@ -73,5 +73,28 @@ namespace ProyectoFinalAPI.Models
                 return respuesta;
             }
         }
+        
+        public List<VoluntariosEnt> ConsultarVoluntarios()
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+
+
+            {
+                List<VoluntariosEnt> respuesta = new List<VoluntariosEnt>();
+                var datosBD = conexion.ConsultarVoluntarios().ToList();
+
+                if (datosBD.Count > 0)
+                {
+                    foreach (var item in datosBD)
+                    {
+                        respuesta.Add(new VoluntariosEnt
+                        {
+                            nombre = item.nombre,
+                            apellido = item.apellido,
+                            disponibilidad = item.disponibilidad,
+
+                        });
+                    }
+                }
     }
 }
