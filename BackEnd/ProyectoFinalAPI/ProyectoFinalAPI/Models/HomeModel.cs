@@ -1,4 +1,4 @@
-﻿//using ProyectoFinalAPI.App_Start;//
+//using ProyectoFinalAPI.App_Start;//
 using ProyectoFinalAPI.Entities;
 using ProyectoFinalAPI.ModeloDB;
 using System;
@@ -13,7 +13,7 @@ namespace ProyectoFinalAPI.Models
     public class HomeModel
     {
         //TokenGenerator modelToken = new TokenGenerator()//
-
+        LogsModel modelLogs = new LogsModel();
         public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
             using (var conexion = new Proyecto_FinalEntities())
@@ -65,7 +65,36 @@ namespace ProyectoFinalAPI.Models
             }
         }
 
+        public void RecuperarContrasenna(UsuariosEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                var respuesta = (from x in conexion.USUARIOS
+                                 where x.email == entidad.email
+                                 select x).FirstOrDefault();
+
+                if (respuesta != null)
+                {
+
+                        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                        var Charsarr = new char[8];
+                        var random = new Random();
+
+                        for (int i = 0; i < Charsarr.Length; i++)
+                        {
+                            Charsarr[i] = characters[random.Next(characters.Length)];
+                        }
+
+                        var resultString = new String(Charsarr);
 
 
+                    modelLogs.ActualizarContrasenna(entidad, resultString);
+                    string Asunto = "RECUPERAR CONTRASEÑA";
+                    string Body = "Su contraseña temporal es: <BR/> " + resultString;
+                    modelLogs.EnviarCorreo(entidad.email, Asunto, Body);
+
+                }
+            }
+        }
     }
 }
