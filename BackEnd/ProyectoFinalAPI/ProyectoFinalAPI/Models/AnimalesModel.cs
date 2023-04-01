@@ -17,7 +17,7 @@ namespace ProyectoFinalAPI.Models
         public List<AnimalesEnt> ConsultarAnimalesParaAdopcion()
         {
             using (var conexion = new Proyecto_FinalEntities())
-    
+
 
             {
                 List<AnimalesEnt> respuesta = new List<AnimalesEnt>();
@@ -26,7 +26,7 @@ namespace ProyectoFinalAPI.Models
                 var datosBD = conexion.ANIMALES_NOT_IN_ADOPCIONES().ToList();
 
                 if (datosBD.Count > 0)
-                { 
+                {
                     foreach (var item in datosBD)
                     {
                         respuesta.Add(new AnimalesEnt
@@ -39,7 +39,7 @@ namespace ProyectoFinalAPI.Models
                             estado_salud = item.estado_salud,
                             refugio_ID = (int)item.refugio_ID,
                             imagen_URL = item.especie == "Perro" ? perroService.RandomDog(item.raza) : item.especie == "Gato" ? gatoService.RandomCat() : "Blank"
-    });
+                        });
                     }
                 }
 
@@ -73,7 +73,7 @@ namespace ProyectoFinalAPI.Models
                 return respuesta;
             }
         }
-        
+
         public List<VoluntariosEnt> ConsultarVoluntarios()
         {
             using (var conexion = new Proyecto_FinalEntities())
@@ -96,5 +96,9 @@ namespace ProyectoFinalAPI.Models
                         });
                     }
                 }
+
+                return respuesta;
+            }
+        }
     }
 }

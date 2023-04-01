@@ -117,31 +117,20 @@ namespace ProyectoFinalWeb.Models
                 return new List<VoluntariosEnt>();
             }
         }
-        
+
         public List<TestimoniosEnt> ConsultarTestimonios()
         {
-            using (var conexion = new Proyecto_FinalEntities())
-
-
+            using (var client = new HttpClient())
             {
-                List<TestimoniosEnt> respuesta = new List<TestimoniosEnt>();
-                var datosBD = conexion.ConsultarTestimonios().ToList();
+                string url = "https://localhost:44343/api/ConsultarTestimonios";
 
-                if (datosBD.Count > 0)
-                {
-                    foreach (var item in datosBD)
-                    {
-                        respuesta.Add(new TestimoniosEnt
-                        {
-                            nombre = item.nombre,
-                            apellido = item.apellido,
-                            mensaje = item.mensaje,
-                            //imagen_URL = item.especie == "Perro" ? perroService.RandomDog(item.raza) : item.especie == "Gato" ? gatoService.RandomCat() : "Blank"
-                        });
-                    }
-                }
+                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
+                HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
 
-                return respuesta;
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<List<TestimoniosEnt>>().Result;
+
+                return new List<TestimoniosEnt>();
             }
         }
 
