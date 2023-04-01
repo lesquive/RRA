@@ -17,32 +17,6 @@ namespace ProyectoFinalAPI.Controllers
             return View();
         }
 
-        HomeModel model = new HomeModel();
-
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("api/ValidarUsuario")]
-        public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
-        {
-            return model.ValidarUsuario(entidad);
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("api/RegistrarUsuario")]
-        public int RegistrarUsuario(UsuariosEnt entidad)
-        {
-            return model.RegistrarUsuario(entidad);
-        }
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("api/BuscarCorreo")]
-        public string BuscarCorreo(string correoValidar)
-        {
-            return model.BuscarCorreo(correoValidar);
-        }
-
-
     }
 
 }

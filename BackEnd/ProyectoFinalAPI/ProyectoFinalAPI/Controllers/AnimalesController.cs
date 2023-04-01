@@ -1,4 +1,4 @@
-﻿using ProyectoFinalAPI.Entities;
+using ProyectoFinalAPI.Entities;
 using ProyectoFinalAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -28,6 +28,14 @@ namespace ProyectoFinalAPI.Controllers
         public List<TestimoniosEnt> ConsultarTestimonios()
         {
             return model.ConsultarTestimonios();
+        }
+        
+        //GET Voluntarios para adopciones
+        [HttpGet]
+        [Route("api/ConsultarVoluntarios")]
+        public List<VoluntariosEnt> ConsultarVoluntarios()
+        {
+            return model.ConsultarVoluntarios();
         }
     }
 }

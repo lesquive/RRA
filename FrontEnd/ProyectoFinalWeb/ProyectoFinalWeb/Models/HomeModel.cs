@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -69,7 +69,7 @@ namespace ProyectoFinalWeb.Models
             using (var client = new HttpClient())
             {
                 JsonContent body = JsonContent.Create(entidad);
-                string url = "https://localhost:44381/api/RegistrarUsuario";
+                string url = "https://localhost:44343/api/RegistrarUsuario";
                 HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
@@ -83,7 +83,7 @@ namespace ProyectoFinalWeb.Models
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:44381/api/BuscarCorreo?correoValidar=" + correoValidar;
+                string url = "https://localhost:44343/api/BuscarCorreo?correoValidar=" + correoValidar;
                 HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
@@ -93,19 +93,55 @@ namespace ProyectoFinalWeb.Models
             }
         }
 
-        public List<TestimoniosEnt> ConsultarTestimonios()
+        public void RecuperarContrasenna(UsuariosEnt entidad)
         {
             using (var client = new HttpClient())
             {
-                string url = "https://localhost:44343/api/ConsultarTestimonios";
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44343//api/RecuperarContrasenna";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+            }
+        }
+        public List<VoluntariosEnt> ConsultarVoluntarios()
+        {
+            using (var client = new HttpClient())
+            {
+                string url = "https://localhost:44343/api/ConsultarVoluntarios";
 
-                //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
+                //HttpContext.Current.Session["Token"].ToString();
                 HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
 
                 if (respuesta.IsSuccessStatusCode)
-                    return respuesta.Content.ReadFromJsonAsync<List<TestimoniosEnt>>().Result;
+                    return respuesta.Content.ReadFromJsonAsync<List<VoluntariosEnt>>().Result;
 
-                return new List<TestimoniosEnt>();
+                return new List<VoluntariosEnt>();
+            }
+        }
+        
+        public List<TestimoniosEnt> ConsultarTestimonios()
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+
+
+            {
+                List<TestimoniosEnt> respuesta = new List<TestimoniosEnt>();
+                var datosBD = conexion.ConsultarTestimonios().ToList();
+
+                if (datosBD.Count > 0)
+                {
+                    foreach (var item in datosBD)
+                    {
+                        respuesta.Add(new TestimoniosEnt
+                        {
+                            nombre = item.nombre,
+                            apellido = item.apellido,
+                            mensaje = item.mensaje,
+                            //imagen_URL = item.especie == "Perro" ? perroService.RandomDog(item.raza) : item.especie == "Gato" ? gatoService.RandomCat() : "Blank"
+                        });
+                    }
+                }
+
+                return respuesta;
             }
         }
 

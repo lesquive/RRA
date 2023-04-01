@@ -154,6 +154,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\TestimoniosEnt.cs" />
     <Compile Include="Entities\AnimalesEnt.cs" />
+    <Compile Include="Entities\VoluntariosEnt.cs" />
     <Compile Include="Entities\UsuariosEnt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,6 +164,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\ProyectoFinalWeb.dll" />
+    <Content Include="bin\ProyectoFinalWeb.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\Microsoft.Bcl.AsyncInterfaces.dll" />
@@ -325,6 +328,8 @@
     <Content Include="lib\flaticon\font\_flaticon.scss" />
     <Content Include="lib\flaticon\license\license.pdf" />
     <Content Include="lib\owlcarousel\LICENSE" />
+    <Content Include="Views\Home\RecuperarContrasenna.cshtml" />
+    <Content Include="Views\Home\ConsultarVoluntarios.cshtml" />
     <None Include="bin\ProyectoFinalWeb.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
