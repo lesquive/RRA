@@ -1,0 +1,27 @@
+﻿@model ProyectoFinalWeb.Models.HomeModel
+
+@{
+    var model = new ProyectoFinalWeb.Models.HomeModel();
+
+}
+
+<!-- Testimonial Start -->
+<div class="container-fluid bg-testimonial py-5" style="margin: 45px 0;">
+    <div class="container py-5">
+        <div class="row justify-content-end">
+            <div class="col-lg-7">
+                <div class="owl-carousel testimonial-carousel bg-white p-5">
+                    @foreach (var item in model.ConsultarTestimonios())
+                    {
+                <div class="testimonial-item text-center">
+                    <p>@item.mensaje</p>
+                    <hr class="w-25 mx-auto">
+                    <h5 class="text-uppercase">@item.nombre @item.apellido</h5>
+                </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
