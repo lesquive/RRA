@@ -37,7 +37,14 @@
             <h1 class="m-0 text-uppercase text-dark">
                 RRA
             </h1>
+
         </a>
+        <div>
+            @if (Session["Email"] != null)
+            {
+                Session["Email"].ToString();
+            }
+            </div>
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -59,9 +66,9 @@
                         <a href="blog.html" class="dropdown-item">Contáctenos</a>
                     </div>
                 </div>
-                <a href="Login.html"
+                <a href="@Url.Action("IniciarSesion","Home")"
                    class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">
-                    Login <i class="bi bi-arrow-right"></i>
+                    Iniciar Sesión <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
         </div>

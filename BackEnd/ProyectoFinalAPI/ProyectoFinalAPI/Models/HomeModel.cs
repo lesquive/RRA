@@ -27,8 +27,8 @@ namespace ProyectoFinalAPI.Models
                 if (datosBD != null)
                 {
                     UsuariosEnt respuesta = new UsuariosEnt();
+                    respuesta.id = datosBD.id;
                     respuesta.email = datosBD.email;
-                    // respuesta.Token = modelToken.GenerateTokenJwt(datosBD.email);
                     return respuesta;
                 }
 
@@ -44,6 +44,8 @@ namespace ProyectoFinalAPI.Models
                 return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password,entidad.role);
             }
         }
+
+        
 
         public string BuscarCorreo(string correoValidar)
         {

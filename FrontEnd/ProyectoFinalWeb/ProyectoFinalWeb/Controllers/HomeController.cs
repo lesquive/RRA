@@ -69,6 +69,44 @@ namespace ProyectoFinalWeb.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult IniciarSesion()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult IniciarSesion(UsuariosEnt entidad)
+        {
+            try
+            {
+                var resultado = homeModel.ValidarUsuario(entidad);
+
+                if (resultado != null)
+                {
+                    Session["Email"] = resultado.email;
+                    Session["Id"] = resultado.id;
+                    return View();
+                }
+                else
+                {
+                    ViewBag.mensaje = "Sus credenciales no fueron validados";
+                    return View("Index");
+                }
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
         [HttpPost]
         public ActionResult BuscarCorreo(string correoValidar)
         {
