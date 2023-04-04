@@ -14,7 +14,6 @@ namespace ProyectoFinalAPI.Controllers
         HomeModel model = new HomeModel();
 
         [HttpPost]
-        [AllowAnonymous]
         [Route("api/ValidarUsuario")]
         public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
@@ -28,6 +27,8 @@ namespace ProyectoFinalAPI.Controllers
         {
             return model.RegistrarUsuario(entidad);
         }
+
+        
         [HttpGet]
         [AllowAnonymous]
         [Route("api/BuscarCorreo")]
