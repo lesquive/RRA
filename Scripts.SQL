@@ -54,7 +54,7 @@ GO
 
 
 CREATE TABLE [USUARIOS] (
-  [id] int PRIMARY KEY NOT NULL,
+  [id] int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   [nombre] varchar(255) NOT NULL,
   [apellido] varchar(255) NOT NULL,
   [edad] int NOT NULL,
@@ -456,8 +456,8 @@ CREATE PROCEDURE [dbo].[RegistrarUsuario]
 AS
 BEGIN
 
-	INSERT INTO USUARIOS (nombre, apellido, edad, telefono, email, usuario,password, role) 
-	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, @role);
+	INSERT INTO USUARIOS (nombre, apellido, edad, telefono, email, usuario,password, role, estado) 
+	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, @role, 1);
 
 END
 GO
