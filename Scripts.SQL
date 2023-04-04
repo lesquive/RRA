@@ -54,7 +54,7 @@ GO
 
 
 CREATE TABLE [USUARIOS] (
-  [id] int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  [id] int PRIMARY KEY NOT NULL,
   [nombre] varchar(255) NOT NULL,
   [apellido] varchar(255) NOT NULL,
   [edad] int NOT NULL,
@@ -457,7 +457,7 @@ AS
 BEGIN
 
 	INSERT INTO USUARIOS (nombre, apellido, edad, telefono, email, usuario,password, role, estado) 
-	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, @role, 1);
+	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, 2, 1);
 
 END
 GO
