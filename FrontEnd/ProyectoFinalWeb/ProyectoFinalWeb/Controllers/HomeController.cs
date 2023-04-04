@@ -18,6 +18,11 @@ namespace ProyectoFinalWeb.Controllers
             return View();
         }
 
+        public ActionResult Panel()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
