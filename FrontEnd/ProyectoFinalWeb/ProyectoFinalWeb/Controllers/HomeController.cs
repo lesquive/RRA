@@ -144,5 +144,42 @@ namespace ProyectoFinalWeb.Controllers
                 return View("Index");
             }
         }
+
+        [HttpGet]
+        public ActionResult AgregarTestimonio()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            try
+            {
+                if (homeModel.AgregarTestimonio(entidad) > 0)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.mensaje = "No se pudo agregar su testimonio";
+                    return View("Index");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return View("Index");
+            }
+        }
+
     }
 }

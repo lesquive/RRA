@@ -17,6 +17,7 @@ namespace ProyectoFinalWeb.Entities
 
         public string mensaje { get; set; }
 
+        public int usuario_id { get; set; }
         public string imagen_URL { get; set; }
     }
 }

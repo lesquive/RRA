@@ -41,7 +41,7 @@ namespace ProyectoFinalAPI.Models
         {
             using (var conexion = new Proyecto_FinalEntities())
             {
-                return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password,entidad.role);
+                return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password);
             }
         }
 
@@ -98,5 +98,13 @@ namespace ProyectoFinalAPI.Models
                 }
             }
         }
+        public int AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                return conexion.AgregarTestimonio(entidad.usuario_id, entidad.mensaje);
+            }
+        }
+
     }
 }

@@ -43,5 +43,13 @@ namespace ProyectoFinalAPI.Controllers
             model.RecuperarContrasenna(entidad);
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/AgregarTestimonio")]
+        public int AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            return model.AgregarTestimonio(entidad);
+        }
+
     }
 }

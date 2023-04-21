@@ -18,11 +18,17 @@ namespace ProyectoFinalWeb.Models
             {
                 string url = "https://localhost:44343/api/ConsultarAnimalesParaAdopcion";
 
+
+
                 //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
                 HttpResponseMessage respuesta = client.GetAsync(url).GetAwaiter().GetResult();
 
+
+
                 if (respuesta.IsSuccessStatusCode)
                     return respuesta.Content.ReadFromJsonAsync<List<AnimalesEnt>>().Result;
+
+
 
                 return new List<AnimalesEnt>();
             }
@@ -148,5 +154,21 @@ namespace ProyectoFinalWeb.Models
             }
         }
 
+        public int AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44343/api/AgregarTestimonio";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<int>().Result;
+
+                return 0;
+            }
+        }
+
+
     }
-}
+    }
