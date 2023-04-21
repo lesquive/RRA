@@ -374,35 +374,35 @@ VALUES (20, 4, 1010, '2022-01-10 19:00:00', 550);
 -- TESTIMONIOS
 ---------
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (1, 1001, '¡Adoptar mi perro de este refugio fue la mejor decisión que he tomado!');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1001, '¡Adoptar mi perro de este refugio fue la mejor decisión que he tomado!');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (2, 1002, 'Me encanta donar a esta organización porque sé que cada dólar va a ayudar a los animales necesitados.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1002, 'Me encanta donar a esta organización porque sé que cada dólar va a ayudar a los animales necesitados.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (3, 1003, 'Adopté a mi gato de este refugio y ha traído mucha alegría a mi vida.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1003, 'Adopté a mi gato de este refugio y ha traído mucha alegría a mi vida.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (4, 1004, 'Me siento bien sabiendo que mi donación está ayudando a proporcionar comida y refugio a los animales necesitados.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1004, 'Me siento bien sabiendo que mi donación está ayudando a proporcionar comida y refugio a los animales necesitados.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (5, 1005, '¡Adoptar mi perro de este refugio cambió mi vida para mejor!');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1005, '¡Adoptar mi perro de este refugio cambió mi vida para mejor!');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (6, 1006, 'Dono a esta organización cada mes porque creo en su misión de ayudar a los animales.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1006, 'Dono a esta organización cada mes porque creo en su misión de ayudar a los animales.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (7, 1007, 'Adoptar a mi gato de este refugio fue una experiencia maravillosa. El personal fue muy amable y atento.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1007, 'Adoptar a mi gato de este refugio fue una experiencia maravillosa. El personal fue muy amable y atento.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (8, 1008, 'Siento que estoy haciendo una diferencia al donar a esta organización y ayudar a salvar a los animales.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1008, 'Siento que estoy haciendo una diferencia al donar a esta organización y ayudar a salvar a los animales.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (9, 1009, 'Adopté a mi perro de este refugio y se ha convertido en mi mejor amigo y compañero constante.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1009, 'Adopté a mi perro de este refugio y se ha convertido en mi mejor amigo y compañero constante.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (10, 1010, 'Me encanta apoyar a este refugio porque van más allá para ayudar a los animales necesitados.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1010, 'Me encanta apoyar a este refugio porque van más allá para ayudar a los animales necesitados.');
   
 --------
 -- Voluntarios
