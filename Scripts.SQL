@@ -90,7 +90,7 @@ CREATE TABLE [ERRORES] (
 GO
 
 CREATE TABLE [TESTIMONIOS] (
-  [id] int PRIMARY KEY NOT NULL,
+  [id] int IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [usuario_id] int NOT NULL,
   [mensaje] varchar(255) NOT NULL
 )
@@ -522,3 +522,19 @@ BEGIN
 
 	END
 	GO
+	
+--------
+-- AgregarTestimonio
+---------
+CREATE PROCEDURE [dbo].[AgregarTestimonio]
+	@usuario_id int,
+	@mensaje varchar(255)
+
+AS
+BEGIN
+
+	INSERT INTO TESTIMONIOS(usuario_id, mensaje) 
+	VALUES (@usuario_id, @mensaje);
+
+END
+GO
