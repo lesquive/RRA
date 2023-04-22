@@ -549,8 +549,8 @@ CREATE PROCEDURE [dbo].AdoptarMascota
 AS
 BEGIN
 
-	INSERT INTO ADOPCIONES(animal_ID, adoptante_ID) 
-	VALUES (@animal_ID, @adoptante_ID);
+	INSERT INTO ADOPCIONES(animal_ID, adoptante_ID, refugio_ID, fecha) 
+	VALUES (@animal_ID, @adoptante_ID, 2, GETDATE());
 
 END
 GO
