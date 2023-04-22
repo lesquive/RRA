@@ -18,6 +18,33 @@ namespace ProyectoFinalWeb.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Panel(UsuariosEnt entidad)
+        {
+            try
+            {
+                var resultado = homeModel.ValidarUsuario(entidad);
+
+                if (resultado != null)
+                {
+                    Session["email"] = resultado.email;
+                    Session["id"] = resultado.id;
+                    Session["nombre"] = resultado.nombre;
+                    Session["apellido"] = resultado.apellido;
+                    return View();
+                }
+                else
+                {
+                    ViewBag.mensaje = "Sus credenciales no fueron validados";
+                    return View("Index");
+                }
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -69,6 +96,44 @@ namespace ProyectoFinalWeb.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult IniciarSesion()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult IniciarSesion(UsuariosEnt entidad)
+        {
+            try
+            {
+                var resultado = homeModel.ValidarUsuario(entidad);
+
+                if (resultado != null)
+                {
+                    Session["Email"] = resultado.email;
+                    Session["Id"] = resultado.id;
+                    return View();
+                }
+                else
+                {
+                    ViewBag.mensaje = "Sus credenciales no fueron validados";
+                    return View("Index");
+                }
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
         [HttpPost]
         public ActionResult BuscarCorreo(string correoValidar)
         {
@@ -101,5 +166,42 @@ namespace ProyectoFinalWeb.Controllers
                 return View("Index");
             }
         }
+
+        [HttpGet]
+        public ActionResult AgregarTestimonio()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            try
+            {
+                if (homeModel.AgregarTestimonio(entidad) > 0)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.mensaje = "No se pudo agregar su testimonio";
+                    return View("Index");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return View("Index");
+            }
+        }
+
     }
 }

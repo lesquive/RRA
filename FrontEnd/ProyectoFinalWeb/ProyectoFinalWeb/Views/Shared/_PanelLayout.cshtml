@@ -22,7 +22,7 @@
     <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
 
 
-          @Styles.Render("~/lib/flaticon/font/flaticon.css")
+    @Styles.Render("~/lib/flaticon/font/flaticon.css")
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
@@ -39,7 +39,7 @@
             </h1>
 
         </a>
-        
+
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
@@ -48,22 +48,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="product.html" class="nav-item nav-link">Adopta un Amigo</a>
-                <a href="@Url.Action("RegistrarUsuario","Home")" class="nav-item nav-link"> Registrarse </a> <br>
-                <div class="nav-item dropdown">
-                    <a href="#"
-                       class="nav-link dropdown-toggle"
-                       data-bs-toggle="dropdown">Otras opciones</a>
-                    <div class="dropdown-menu m-0">
-                        <a href="price.html" class="dropdown-item">Sobre Nosotros</a>
-                        <a href="team.html" class="dropdown-item">Donaciones</a>
-                        <a href="testimonial.html" class="dropdown-item">Voluntarios</a>
-                        <a href="blog.html" class="dropdown-item">Contáctenos</a>
-                    </div>
-                </div>
                 <a href="@Url.Action("IniciarSesion","Home")"
                    class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">
-                    Iniciar Sesión <i class="bi bi-arrow-right"></i>
+                    Cerrar Sesión <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -95,21 +82,17 @@
                         Enlaces Rápidos
                     </h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-body mb-2" href="@Url.Action("Index", "Home")">
-                            <i class="bi bi-arrow-right text-primary me-2"></i>Adopta un Amigo</a>
-
-                        <a class="text-body mb-2" href="@Url.Action("Index", "Home")">
-                            <i class="bi bi-arrow-right text-primary me-2"></i>Sobre Nosotros</a>
-
-                        <a class="text-body mb-2" href="@Url.Action("Index", "Home")">
+                        <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Adopta un Amigo</a>
+                        <a class="text-body mb-2" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Sobre Nosotros</a>
+                        <a class="text-body mb-2" href="#">
                             <i class="bi bi-arrow-right text-primary me-2"></i>Donaciones
 
                         </a>
-                        <a class="text-body mb-2" href="@Url.Action("Index", "Home")">
+                        <a class="text-body mb-2" href="#">
                             <i class="bi bi-arrow-right text-primary me-2"></i>Voluntarios
 
                         </a>
-                        <a class="text-body mb-2" href="@Url.Action("Index", "Home")">
+                        <a class="text-body mb-2" href="#">
                             <i class="bi bi-arrow-right text-primary me-2"></i>Contáctenos
 
                         </a>
@@ -144,13 +127,13 @@
                     </div>
                 </div>
                 <div class="col-12 text-center text-body">
-                    <a class="text-body" href="@Url.Action("Index", "Home")">Términos y condiciones</a>
+                    <a class="text-body" href="">Términos y condiciones</a>
                     <span class="mx-1">|</span>
-                    <a class="text-body" href="@Url.Action("Index", "Home")">Política de Privacidad</a>
+                    <a class="text-body" href="">Política de Privacidad</a>
                     <span class="mx-1">|</span>
-                    <a class="text-body" href="@Url.Action("Index", "Home")">Ayuda</a>
+                    <a class="text-body" href="">Ayuda</a>
                     <span class="mx-1">|</span>
-                    <a class="text-body" href="@Url.Action("Index", "Home")">FAQs</a>
+                    <a class="text-body" href="">FAQs</a>
                 </div>
             </div>
         </div>

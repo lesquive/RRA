@@ -8,6 +8,7 @@ namespace ProyectoFinalWeb.Entities
     //Toda las propiedades de un usuario
     public class UsuariosEnt
     {
+        public long id { get; set; }
         public string nombre { get; set; }
 
         public string apellido { get; set; }
@@ -29,5 +30,7 @@ namespace ProyectoFinalWeb.Entities
         public bool estado { get; set; }
 
         public string Token { get; set; }
+
+       
     }
 }

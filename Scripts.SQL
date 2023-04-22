@@ -24,11 +24,11 @@ CREATE TABLE [ANIMALES] (
 GO
 
 CREATE TABLE [ADOPCIONES] (
-  [id] int PRIMARY KEY NOT NULL,
+  [id] int IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [animal_ID] int NOT NULL,
-  [refugio_ID] int NOT NULL,
+  [refugio_ID] int,
   [adoptante_ID] int NOT NULL,
-  [fecha] datetime NOT NULL
+  [fecha] datetime
 )
 GO
 
@@ -90,7 +90,7 @@ CREATE TABLE [ERRORES] (
 GO
 
 CREATE TABLE [TESTIMONIOS] (
-  [id] int PRIMARY KEY NOT NULL,
+  [id] int IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [usuario_id] int NOT NULL,
   [mensaje] varchar(255) NOT NULL
 )
@@ -309,18 +309,18 @@ VALUES (21, 'Toby', 'Perro', 'Labrador Retriever', 1, 'Saludable', 4, 'https://e
 -- ADOPCIONES
 ---------
 
-INSERT INTO ADOPCIONES (id, animal_ID, refugio_ID, adoptante_ID, fecha)
+INSERT INTO ADOPCIONES (animal_ID, refugio_ID, adoptante_ID, fecha)
 VALUES
-  (1, 1, 1, 1003, '2023-03-21 10:00:00'),
-  (2, 3, 2, 1012, '2023-03-20 10:00:00'),
-  (3, 4, 3, 1010, '2023-03-19 10:00:00'),
-  (4, 6, 4, 1004, '2023-03-18 10:00:00'),
-  (5, 12, 5, 1005, '2023-03-17 10:00:00'),
-  (6, 7, 6, 1006, '2023-03-16 10:00:00'),
-  (7, 15, 1, 1007, '2023-03-15 10:00:00'),
-  (8, 20, 2, 1008, '2023-03-14 10:00:00'),
-  (9, 21, 1, 1019, '2023-03-13 10:00:00'),
-  (10, 25, 2, 1011, '2023-03-12 10:00:00');
+  (1, 1, 1003, '2023-03-21 10:00:00'),
+  (3, 2, 1012, '2023-03-20 10:00:00'),
+  (4, 3, 1010, '2023-03-19 10:00:00'),
+  (6, 4, 1004, '2023-03-18 10:00:00'),
+  (12, 5, 1005, '2023-03-17 10:00:00'),
+  (7, 6, 1006, '2023-03-16 10:00:00'),
+  (15, 1, 1007, '2023-03-15 10:00:00'),
+  (20, 2, 1008, '2023-03-14 10:00:00'),
+  (21, 1, 1019, '2023-03-13 10:00:00'),
+  (25, 2, 1011, '2023-03-12 10:00:00');
 
 
 --------
@@ -374,35 +374,35 @@ VALUES (20, 4, 1010, '2022-01-10 19:00:00', 550);
 -- TESTIMONIOS
 ---------
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (1, 1001, '¡Adoptar mi perro de este refugio fue la mejor decisión que he tomado!');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1001, '¡Adoptar mi perro de este refugio fue la mejor decisión que he tomado!');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (2, 1002, 'Me encanta donar a esta organización porque sé que cada dólar va a ayudar a los animales necesitados.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1002, 'Me encanta donar a esta organización porque sé que cada dólar va a ayudar a los animales necesitados.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (3, 1003, 'Adopté a mi gato de este refugio y ha traído mucha alegría a mi vida.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1003, 'Adopté a mi gato de este refugio y ha traído mucha alegría a mi vida.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (4, 1004, 'Me siento bien sabiendo que mi donación está ayudando a proporcionar comida y refugio a los animales necesitados.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1004, 'Me siento bien sabiendo que mi donación está ayudando a proporcionar comida y refugio a los animales necesitados.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (5, 1005, '¡Adoptar mi perro de este refugio cambió mi vida para mejor!');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1005, '¡Adoptar mi perro de este refugio cambió mi vida para mejor!');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (6, 1006, 'Dono a esta organización cada mes porque creo en su misión de ayudar a los animales.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1006, 'Dono a esta organización cada mes porque creo en su misión de ayudar a los animales.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (7, 1007, 'Adoptar a mi gato de este refugio fue una experiencia maravillosa. El personal fue muy amable y atento.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1007, 'Adoptar a mi gato de este refugio fue una experiencia maravillosa. El personal fue muy amable y atento.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (8, 1008, 'Siento que estoy haciendo una diferencia al donar a esta organización y ayudar a salvar a los animales.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1008, 'Siento que estoy haciendo una diferencia al donar a esta organización y ayudar a salvar a los animales.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (9, 1009, 'Adopté a mi perro de este refugio y se ha convertido en mi mejor amigo y compañero constante.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1009, 'Adopté a mi perro de este refugio y se ha convertido en mi mejor amigo y compañero constante.');
 
-INSERT INTO TESTIMONIOS (id, usuario_id, mensaje)
-VALUES (10, 1010, 'Me encanta apoyar a este refugio porque van más allá para ayudar a los animales necesitados.');
+INSERT INTO TESTIMONIOS (usuario_id, mensaje)
+VALUES (1010, 'Me encanta apoyar a este refugio porque van más allá para ayudar a los animales necesitados.');
   
 --------
 -- Voluntarios
@@ -456,8 +456,8 @@ CREATE PROCEDURE [dbo].[RegistrarUsuario]
 AS
 BEGIN
 
-	INSERT INTO USUARIOS (nombre, apellido, edad, telefono, email, usuario,password, role) 
-	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, @role);
+	INSERT INTO USUARIOS (nombre, apellido, edad, telefono, email, usuario,password, role, estado) 
+	VALUES (@nombre, @apellido, @edad, @telefono,@email,@usuario, @password, 2, 1);
 
 END
 GO
@@ -522,3 +522,35 @@ BEGIN
 
 	END
 	GO
+	
+--------
+-- AgregarTestimonio
+---------
+CREATE PROCEDURE [dbo].[AgregarTestimonio]
+	@usuario_id int,
+	@mensaje varchar(255)
+
+AS
+BEGIN
+
+	INSERT INTO TESTIMONIOS(usuario_id, mensaje) 
+	VALUES (@usuario_id, @mensaje);
+
+END
+GO
+
+--------
+-- AdoptarMascota
+---------
+CREATE PROCEDURE [dbo].AdoptarMascota
+	@animal_ID int, 
+	@adoptante_ID int
+
+AS
+BEGIN
+
+	INSERT INTO ADOPCIONES(animal_ID, adoptante_ID, refugio_ID, fecha) 
+	VALUES (@animal_ID, @adoptante_ID, 2, GETDATE());
+
+END
+GO

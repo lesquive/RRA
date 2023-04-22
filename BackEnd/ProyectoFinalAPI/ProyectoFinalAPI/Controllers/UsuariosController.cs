@@ -14,7 +14,13 @@ namespace ProyectoFinalAPI.Controllers
         HomeModel model = new HomeModel();
 
         [HttpPost]
-        [AllowAnonymous]
+        [Route("api/AdoptarMascota")]
+        public int AdoptarMascota(AdoptarEnt entidad)
+        {
+            return model.AdoptarMascota(entidad);
+        }
+
+        [HttpPost]
         [Route("api/ValidarUsuario")]
         public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
@@ -28,6 +34,8 @@ namespace ProyectoFinalAPI.Controllers
         {
             return model.RegistrarUsuario(entidad);
         }
+
+        
         [HttpGet]
         [AllowAnonymous]
         [Route("api/BuscarCorreo")]
@@ -40,6 +48,14 @@ namespace ProyectoFinalAPI.Controllers
         public void RecuperarContrasenna(UsuariosEnt entidad)
         {
             model.RecuperarContrasenna(entidad);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/AgregarTestimonio")]
+        public int AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            return model.AgregarTestimonio(entidad);
         }
 
     }

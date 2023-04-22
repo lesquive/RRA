@@ -27,8 +27,10 @@ namespace ProyectoFinalAPI.Models
                 if (datosBD != null)
                 {
                     UsuariosEnt respuesta = new UsuariosEnt();
+                    respuesta.id = datosBD.id;
                     respuesta.email = datosBD.email;
-                    // respuesta.Token = modelToken.GenerateTokenJwt(datosBD.email);
+                    respuesta.nombre = datosBD.nombre;
+                    respuesta.apellido = datosBD.apellido;
                     return respuesta;
                 }
 
@@ -36,14 +38,23 @@ namespace ProyectoFinalAPI.Models
             }
         }
 
+        public int AdoptarMascota(AdoptarEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                return conexion.AdoptarMascota(entidad.animal_ID, entidad.adoptante_ID);
+            }
+        }
 
         public int RegistrarUsuario(UsuariosEnt entidad)
         {
             using (var conexion = new Proyecto_FinalEntities())
             {
-                return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password,entidad.role);
+                return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password, entidad.role);
             }
         }
+
+        
 
         public string BuscarCorreo(string correoValidar)
         {
@@ -96,5 +107,13 @@ namespace ProyectoFinalAPI.Models
                 }
             }
         }
+        public int AgregarTestimonio(TestimoniosEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                return conexion.AgregarTestimonio(entidad.usuario_id, entidad.mensaje);
+            }
+        }
+
     }
 }

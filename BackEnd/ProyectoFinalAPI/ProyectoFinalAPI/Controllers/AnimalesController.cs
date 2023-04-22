@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace ProyectoFinalAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class AnimalesController : ApiController
     {
         AnimalesModel model = new AnimalesModel();
@@ -37,5 +39,6 @@ namespace ProyectoFinalAPI.Controllers
         {
             return model.ConsultarVoluntarios();
         }
+
     }
 }
