@@ -538,3 +538,19 @@ BEGIN
 
 END
 GO
+
+--------
+-- AdoptarMascota
+---------
+CREATE PROCEDURE [dbo].AdoptarMascota
+	@animal_ID int, 
+	@adoptante_ID int
+
+AS
+BEGIN
+
+	INSERT INTO ADOPCIONES(animal_ID, adoptante_ID) 
+	VALUES (@animal_ID, @adoptante_ID);
+
+END
+GO
