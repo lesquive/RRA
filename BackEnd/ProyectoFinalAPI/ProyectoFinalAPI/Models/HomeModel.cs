@@ -50,7 +50,7 @@ namespace ProyectoFinalAPI.Models
         {
             using (var conexion = new Proyecto_FinalEntities())
             {
-                return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password);
+                return conexion.RegistrarUsuario(entidad.nombre,entidad.apellido,entidad.edad,entidad.telefono,entidad.email,entidad.usuario,entidad.password, entidad.role);
             }
         }
 

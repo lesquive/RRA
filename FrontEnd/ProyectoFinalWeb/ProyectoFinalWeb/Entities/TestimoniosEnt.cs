@@ -9,7 +9,7 @@ namespace ProyectoFinalWeb.Entities
 {
     public class TestimoniosEnt
     {
-        public long id { get; set; }
+        public int id { get; set; }
 
         public string nombre { get; set; }
 
