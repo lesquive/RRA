@@ -1,13 +1,31 @@
 ﻿@model ProyectoFinalWeb.Entities.UsuariosEnt
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_PanelLayout.cshtml";
 }
 
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                    </div>
+                    @if (@Session["nombre"] != null)
+                    {
+                        <h4>Hola @Session["nombre"].ToString() @Session["apellido"].ToString()!</h4>
+                        <h5>Correo: @Session["email"].ToString() </h5>
+                        <h5 id="userid">@Session["id"].ToString()</h5>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Adoptar  Start -->
 
-@* @Html.Partial("Adoptar") *@
+ @Html.Partial("Adoptar") 
 
 <!-- Adoptar End -->
 
