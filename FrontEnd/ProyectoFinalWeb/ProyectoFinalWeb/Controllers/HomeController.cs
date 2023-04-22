@@ -18,9 +18,31 @@ namespace ProyectoFinalWeb.Controllers
             return View();
         }
 
-        public ActionResult Panel()
+        [HttpPost]
+        public ActionResult Panel(UsuariosEnt entidad)
         {
-            return View();
+            try
+            {
+                var resultado = homeModel.ValidarUsuario(entidad);
+
+                if (resultado != null)
+                {
+                    Session["email"] = resultado.email;
+                    Session["id"] = resultado.id;
+                    Session["nombre"] = resultado.nombre;
+                    Session["apellido"] = resultado.apellido;
+                    return View();
+                }
+                else
+                {
+                    ViewBag.mensaje = "Sus credenciales no fueron validados";
+                    return View("Index");
+                }
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult About()

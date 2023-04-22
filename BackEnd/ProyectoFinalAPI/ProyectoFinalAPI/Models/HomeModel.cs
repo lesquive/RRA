@@ -29,6 +29,8 @@ namespace ProyectoFinalAPI.Models
                     UsuariosEnt respuesta = new UsuariosEnt();
                     respuesta.id = datosBD.id;
                     respuesta.email = datosBD.email;
+                    respuesta.nombre = datosBD.nombre;
+                    respuesta.apellido = datosBD.apellido;
                     return respuesta;
                 }
 
@@ -36,6 +38,13 @@ namespace ProyectoFinalAPI.Models
             }
         }
 
+        public int AdoptarMascota(AdoptarEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                return conexion.AdoptarMascota(entidad.animal_ID, entidad.adoptante_ID);
+            }
+        }
 
         public int RegistrarUsuario(UsuariosEnt entidad)
         {

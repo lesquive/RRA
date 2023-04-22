@@ -14,6 +14,13 @@ namespace ProyectoFinalAPI.Controllers
         HomeModel model = new HomeModel();
 
         [HttpPost]
+        [Route("api/AdoptarMascota")]
+        public int AdoptarMascota(AdoptarEnt entidad)
+        {
+            return model.AdoptarMascota(entidad);
+        }
+
+        [HttpPost]
         [Route("api/ValidarUsuario")]
         public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
