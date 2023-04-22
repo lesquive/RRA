@@ -26,9 +26,9 @@ GO
 CREATE TABLE [ADOPCIONES] (
   [id] int IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [animal_ID] int NOT NULL,
-  [refugio_ID] int NOT NULL,
+  [refugio_ID] int,
   [adoptante_ID] int NOT NULL,
-  [fecha] datetime NOT NULL
+  [fecha] datetime
 )
 GO
 
