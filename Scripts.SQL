@@ -45,7 +45,7 @@ CREATE TABLE [REFUGIOS] (
 GO
 
 CREATE TABLE [VOLUNTARIOS] (
-  [id] int PRIMARY KEY NOT NULL,
+  [id] int IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [voluntario_ID] int NOT NULL,
   [disponibilidad] varchar(255) NOT NULL
 )
@@ -75,7 +75,7 @@ CREATE TABLE [ROLES] (
 GO
 
 CREATE TABLE [DONACIONES] (
-  [id] int PRIMARY KEY NOT NULL,
+  [id] int IDENTITY(1,1) PRIMARY KEY NOT NULL,
   [refugio_ID] int NOT NULL,
   [donante_ID] int NOT NULL,
   [fecha] datetime NOT NULL,
@@ -327,48 +327,48 @@ VALUES
 -- DONACIONES
 ---------
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
 VALUES
-  (1, 1, 1001, '2023-03-21 10:00:00', 150),
-  (2, 3, 1002, '2023-03-20 10:00:00', 200),
-  (3, 4, 1003, '2023-03-19 10:00:00', 100),
-  (4, 6, 1004, '2023-03-18 10:00:00', 150),
-  (5, 4, 1005, '2023-03-17 10:00:00', 300),
-  (6, 3, 1002, '2023-03-20 10:00:00', 200),
-  (7, 2, 1003, '2023-03-23 10:00:00', 100),
-  (8, 2, 1004, '2023-03-18 10:00:00', 150),
-  (9, 2, 1005, '2023-03-15 10:00:00', 300),
-  (10, 5, 1006, '2023-03-16 10:00:00', 500);
+  (1, 1001, '2023-03-21 10:00:00', 150),
+  (3, 1002, '2023-03-20 10:00:00', 200),
+  (4, 1003, '2023-03-19 10:00:00', 100),
+  (6, 1004, '2023-03-18 10:00:00', 150),
+  (4, 1005, '2023-03-17 10:00:00', 300),
+  (3, 1002, '2023-03-20 10:00:00', 200),
+  (2, 1003, '2023-03-23 10:00:00', 100),
+  (2, 1004, '2023-03-18 10:00:00', 150),
+  (2, 1005, '2023-03-15 10:00:00', 300),
+  (5, 1006, '2023-03-16 10:00:00', 500);
   
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (11, 1, 1001, '2022-01-01 10:00:00', 200);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (1, 1001, '2022-01-01 10:00:00', 200);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (12, 2, 1002, '2022-01-02 11:00:00', 300);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (2, 1002, '2022-01-02 11:00:00', 300);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (13, 3, 1003, '2022-01-03 12:00:00', 400);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (3, 1003, '2022-01-03 12:00:00', 400);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (14, 4, 1004, '2022-01-04 13:00:00', 500);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (4, 1004, '2022-01-04 13:00:00', 500);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (15, 5, 1005, '2022-01-05 14:00:00', 600);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (5, 1005, '2022-01-05 14:00:00', 600);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (16, 6, 1006, '2022-01-06 15:00:00', 150);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (6, 1006, '2022-01-06 15:00:00', 150);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (17, 1, 1007, '2022-01-07 16:00:00', 250);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (1, 1007, '2022-01-07 16:00:00', 250);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (18, 2, 1008, '2022-01-08 17:00:00', 350);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (2, 1008, '2022-01-08 17:00:00', 350);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (19, 3, 1009, '2022-01-09 18:00:00', 450);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (3, 1009, '2022-01-09 18:00:00', 450);
 
-INSERT INTO DONACIONES (id, refugio_ID, donante_ID, fecha, cantidad)
-VALUES (20, 4, 1010, '2022-01-10 19:00:00', 550);
+INSERT INTO DONACIONES (refugio_ID, donante_ID, fecha, cantidad)
+VALUES (4, 1010, '2022-01-10 19:00:00', 550);
 
 --------
 -- TESTIMONIOS
@@ -408,16 +408,16 @@ VALUES (1010, 'Me encanta apoyar a este refugio porque van más allá para ayuda
 -- Voluntarios
 ---------
   
-INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
-VALUES (1, 1012, '8am - 5pm martes a jueves ');
-INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
-VALUES (2, 1013, '7am - 3pm miercoles y viernes');
-INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
-VALUES (3, 1014, '2pm - 4pm lunes a viernes ');
-INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
-VALUES (4, 1015, '9am - 1pm miercoles y jueves');
-INSERT INTO VOLUNTARIOS(id, voluntario_ID, disponibilidad)
-VALUES (5, 1016, '8pm - 11am martes a viernes ');
+INSERT INTO VOLUNTARIOS(voluntario_ID, disponibilidad)
+VALUES (1012, '8am - 5pm martes a jueves ');
+INSERT INTO VOLUNTARIOS(voluntario_ID, disponibilidad)
+VALUES (1013, '7am - 3pm miercoles y viernes');
+INSERT INTO VOLUNTARIOS(voluntario_ID, disponibilidad)
+VALUES (1014, '2pm - 4pm lunes a viernes ');
+INSERT INTO VOLUNTARIOS(voluntario_ID, disponibilidad)
+VALUES (1015, '9am - 1pm miercoles y jueves');
+INSERT INTO VOLUNTARIOS(voluntario_ID, disponibilidad)
+VALUES (1016, '8pm - 11am martes a viernes ');
 
 
 ---------
@@ -551,6 +551,42 @@ BEGIN
 
 	INSERT INTO ADOPCIONES(animal_ID, adoptante_ID, refugio_ID, fecha) 
 	VALUES (@animal_ID, @adoptante_ID, 2, GETDATE());
+
+END
+GO
+
+--------
+-- AgregarVoluntario
+---------
+
+CREATE PROCEDURE [dbo].[AgregarVoluntario]
+
+    @voluntario_ID int,
+    @disponibilidad varchar(255)
+
+AS
+BEGIN
+
+    INSERT INTO VOLUNTARIOS(voluntario_ID, disponibilidad) 
+    VALUES (@voluntario_ID, @disponibilidad);
+
+END
+GO
+
+--------
+-- Donar
+---------
+
+CREATE PROCEDURE [dbo].[Donar]
+    @refugio_ID int,
+    @donante_ID int,
+    @cantidad int
+
+AS
+BEGIN
+
+    INSERT INTO DONACIONES(refugio_ID, donante_ID, fecha, cantidad) 
+    VALUES (@refugio_ID, @donante_ID, SYSDATETIME(), @cantidad);
 
 END
 GO
