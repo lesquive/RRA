@@ -158,6 +158,7 @@ namespace ProyectoFinalWeb.Models
         {
             using (var client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", HttpContext.Current.Session["Token"].ToString());
                 JsonContent body = JsonContent.Create(entidad);
                 string url = "https://localhost:44343/api/AgregarTestimonio";
                 HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();

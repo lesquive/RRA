@@ -31,6 +31,7 @@ namespace ProyectoFinalWeb.Controllers
                     Session["id"] = resultado.id;
                     Session["nombre"] = resultado.nombre;
                     Session["apellido"] = resultado.apellido;
+                    Session["Token"] = resultado.Token;
                     return View();
                 }
                 else
@@ -101,6 +102,7 @@ namespace ProyectoFinalWeb.Controllers
         {
             try
             {
+                Session.Clear();
                 return View();
             }
             catch (Exception)
