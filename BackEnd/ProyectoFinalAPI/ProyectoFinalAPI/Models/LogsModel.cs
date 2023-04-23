@@ -37,7 +37,7 @@ namespace ProyectoFinalAPI.Models
             client.Send(msg);
         }
 
-        public void ActualizarContrasenna(UsuariosEnt entidad, string resulString)
+        public void GenerarContrasenna(UsuariosEnt entidad, string resulString)
         {
             using (var conexion = new Proyecto_FinalEntities())
             {
@@ -48,6 +48,22 @@ namespace ProyectoFinalAPI.Models
                 if (respuesta != null)
                 {
                     respuesta.password = resulString;
+                    conexion.SaveChanges();
+                }
+            }
+        }
+
+        public void RecuperarContrasenna(UsuariosEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                var respuesta = (from x in conexion.USUARIOS
+                                 where x.email == entidad.email
+                                 select x).FirstOrDefault();
+
+                if (respuesta != null)
+                {
+                    respuesta.password = entidad.NuevaContrasenna;
                     conexion.SaveChanges();
                 }
             }

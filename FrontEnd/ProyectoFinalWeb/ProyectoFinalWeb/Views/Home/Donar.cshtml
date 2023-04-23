@@ -1,0 +1,59 @@
+﻿@model ProyectoFinalWeb.Entities.DonacionesEnt
+@{
+    ViewBag.Title = "Donar";
+}
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+            <div class="row w-100 mx-0">
+                <div class="col-lg-4 mx-auto">
+                    <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                    </div>
+
+                    <h4>Realiza tu donación</h4>
+
+                    @using (Html.BeginForm("Donar", "Home", FormMethod.Post, new { @class = "pt-3" }))
+                    {
+
+                        <div class="form-group">
+                            <input id="donante_ID" name="donante_ID" class="form-control form-control-lg" placeholder="Donante" required="required" type="number" value="@Session["id"]" hidden />
+                        </div>
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.refugio_ID, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Seleccione el refugio",
+                                @required = true,
+                                @type = "number",
+
+                            })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.TextBoxFor(Model => Model.cantidad, new
+                            {
+                                @class = "form-control form-control-lg",
+                                @placeholder = "Cantidad",
+                                @required = true,
+                                @type = "text",
+
+                            })
+                        </div>
+
+                        <div class="mt-3">
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="submit" id="btnAgregar" value="Agregar" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

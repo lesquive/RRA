@@ -79,7 +79,7 @@ namespace ProyectoFinalAPI.Models
             }
         }
 
-        public void RecuperarContrasenna(UsuariosEnt entidad)
+        public void GenerarContrasenna(UsuariosEnt entidad)
         {
             using (var conexion = new Proyecto_FinalEntities())
             {
@@ -102,7 +102,7 @@ namespace ProyectoFinalAPI.Models
                         var resultString = new String(Charsarr);
 
 
-                    modelLogs.ActualizarContrasenna(entidad, resultString);
+                    modelLogs.GenerarContrasenna(entidad, resultString);
                     string Asunto = "RECUPERAR CONTRASEÑA";
                     string Body = "Su contraseña temporal es: <BR/> " + resultString;
                     modelLogs.EnviarCorreo(entidad.email, Asunto, Body);
@@ -115,6 +115,22 @@ namespace ProyectoFinalAPI.Models
             using (var conexion = new Proyecto_FinalEntities())
             {
                 return conexion.AgregarTestimonio(entidad.usuario_id, entidad.mensaje);
+            }
+        }
+
+        public int Donar(DonacionesEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                return conexion.Donar(entidad.refugio_ID, entidad.donante_ID, entidad.cantidad);
+            }
+        }
+
+        public int AgregarVoluntario(VoluntariosEnt entidad)
+        {
+            using (var conexion = new Proyecto_FinalEntities())
+            {
+                return conexion.AgregarVoluntario(entidad.voluntario_ID, entidad.disponibilidad);
             }
         }
 
