@@ -14,6 +14,7 @@ namespace ProyectoFinalAPI.Controllers
         HomeModel model = new HomeModel();
 
         [HttpPost]
+        [AllowAnonymous]
         [Route("api/AdoptarMascota")]
         public int AdoptarMascota(AdoptarEnt entidad)
         {
@@ -21,6 +22,7 @@ namespace ProyectoFinalAPI.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [Route("api/ValidarUsuario")]
         public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
@@ -44,6 +46,7 @@ namespace ProyectoFinalAPI.Controllers
             return model.BuscarCorreo(correoValidar);
         }
         [HttpPost]
+        [AllowAnonymous]
         [Route("api/RecuperarContrasenna")]
         public void RecuperarContrasenna(UsuariosEnt entidad)
         {
@@ -51,7 +54,7 @@ namespace ProyectoFinalAPI.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize]
         [Route("api/AgregarTestimonio")]
         public int AgregarTestimonio(TestimoniosEnt entidad)
         {
