@@ -1,4 +1,5 @@
 //using ProyectoFinalAPI.App_Start;//
+using ProyectoFinalAPI.App_Start;
 using ProyectoFinalAPI.Entities;
 using ProyectoFinalAPI.ModeloDB;
 using System;
@@ -14,6 +15,7 @@ namespace ProyectoFinalAPI.Models
     {
         //TokenGenerator modelToken = new TokenGenerator()//
         LogsModel modelLogs = new LogsModel();
+        TokenGenerator modelToken = new TokenGenerator(); 
         public UsuariosEnt ValidarUsuario(UsuariosEnt entidad)
         {
             using (var conexion = new Proyecto_FinalEntities())
@@ -31,6 +33,7 @@ namespace ProyectoFinalAPI.Models
                     respuesta.email = datosBD.email;
                     respuesta.nombre = datosBD.nombre;
                     respuesta.apellido = datosBD.apellido;
+                    respuesta.Token = modelToken.GenerateTokenJwt(datosBD.id.ToString());
                     return respuesta;
                 }
 

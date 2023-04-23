@@ -17,6 +17,7 @@ namespace ProyectoFinalAPI.Controllers
 
         //GET Animals Disponibles para Adoptar
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/ConsultarAnimalesParaAdopcion")]
         public List<AnimalesEnt> ConsultarAnimalesParaAdopcion()
         {
@@ -26,6 +27,7 @@ namespace ProyectoFinalAPI.Controllers
         //GET Testimonios de adopciones 
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/ConsultarTestimonios")]
         public List<TestimoniosEnt> ConsultarTestimonios()
         {
@@ -34,6 +36,7 @@ namespace ProyectoFinalAPI.Controllers
         
         //GET Voluntarios para adopciones
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/ConsultarVoluntarios")]
         public List<VoluntariosEnt> ConsultarVoluntarios()
         {
