@@ -25,5 +25,7 @@ namespace ProyectoFinalAPI.Entities
         public bool estado { get; set; }
 
         public string Token { get; set; }
+
+        public string NuevaContrasenna { get; set; }
     }
 }

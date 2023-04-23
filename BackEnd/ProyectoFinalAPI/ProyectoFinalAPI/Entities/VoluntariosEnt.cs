@@ -17,5 +17,7 @@ namespace ProyectoFinalAPI.Entities
         public string disponibilidad { get; set; }
 
         public string imagen_URL { get; set; }
+        public int voluntario_ID { get; set; }
+
     }
 }

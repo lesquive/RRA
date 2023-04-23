@@ -12,6 +12,7 @@ namespace ProyectoFinalAPI.Controllers
     public class UsuariosController : ApiController
     {
         HomeModel model = new HomeModel();
+        LogsModel logModel = new LogsModel();
 
         [HttpPost]
         [AllowAnonymous]
@@ -45,12 +46,22 @@ namespace ProyectoFinalAPI.Controllers
         {
             return model.BuscarCorreo(correoValidar);
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/GenerarContrasenna")]
+        public void GenerarContrasenna(UsuariosEnt entidad)
+        {
+            model.GenerarContrasenna(entidad);
+        }
+
+
         [HttpPost]
         [AllowAnonymous]
         [Route("api/RecuperarContrasenna")]
         public void RecuperarContrasenna(UsuariosEnt entidad)
         {
-            model.RecuperarContrasenna(entidad);
+            logModel.RecuperarContrasenna(entidad);
         }
 
         [HttpPost]
@@ -59,6 +70,22 @@ namespace ProyectoFinalAPI.Controllers
         public int AgregarTestimonio(TestimoniosEnt entidad)
         {
             return model.AgregarTestimonio(entidad);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/Donar")]
+        public int Donar(DonacionesEnt entidad)
+        {
+            return model.Donar(entidad);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("api/AgregarVoluntario")]
+        public int AgregarVoluntario(VoluntariosEnt entidad)
+        {
+            return model.AgregarVoluntario(entidad);
         }
 
     }

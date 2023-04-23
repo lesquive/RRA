@@ -170,6 +170,46 @@ namespace ProyectoFinalWeb.Models
             }
         }
 
+        public void GenerarContrasenna(UsuariosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44343//api/GenerarContrasenna";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+            }
+        }
+
+        public int Donar(DonacionesEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44343/api/Donar";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<int>().Result;
+
+                return 0;
+            }
+        }
+
+        public int AgregarVoluntario(VoluntariosEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                JsonContent body = JsonContent.Create(entidad);
+                string url = "https://localhost:44343/api/AgregarVoluntario";
+                HttpResponseMessage respuesta = client.PostAsync(url, body).GetAwaiter().GetResult();
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<int>().Result;
+
+                return 0;
+            }
+        }
+
 
     }
-    }
+}
