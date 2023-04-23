@@ -13,12 +13,9 @@ namespace ProyectoFinalAPI.Models
 {
     public class AnimalesModel
     {
-
         public List<AnimalesEnt> ConsultarAnimalesParaAdopcion()
         {
             using (var conexion = new Proyecto_FinalEntities())
-
-
             {
                 List<AnimalesEnt> respuesta = new List<AnimalesEnt>();
                 PerroService perroService = new PerroService();
@@ -46,7 +43,6 @@ namespace ProyectoFinalAPI.Models
                 return respuesta;
             }
         }
-
         public List<TestimoniosEnt> ConsultarTestimonios()
         {
             using (var conexion = new Proyecto_FinalEntities())
@@ -72,13 +68,11 @@ namespace ProyectoFinalAPI.Models
 
                 return respuesta;
             }
-        }
 
+        }
         public List<VoluntariosEnt> ConsultarVoluntarios()
         {
             using (var conexion = new Proyecto_FinalEntities())
-
-
             {
                 List<VoluntariosEnt> respuesta = new List<VoluntariosEnt>();
                 var datosBD = conexion.ConsultarVoluntarios().ToList();
@@ -96,7 +90,6 @@ namespace ProyectoFinalAPI.Models
                         });
                     }
                 }
-
                 return respuesta;
             }
         }

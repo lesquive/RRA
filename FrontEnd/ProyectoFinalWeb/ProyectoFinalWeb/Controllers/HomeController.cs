@@ -142,6 +142,38 @@ namespace ProyectoFinalWeb.Controllers
             return Json(homeModel.BuscarCorreo(correoValidar), JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public ActionResult BuscarContrasenna(UsuariosEnt entidad)
+        {
+            return Json(homeModel.ValidarUsuario(entidad), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult GenerarContrasenna()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GenerarContrasenna(UsuariosEnt entidad)
+        {
+            try
+            {
+                homeModel.GenerarContrasenna(entidad);
+                return View("index");
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
         [HttpGet]
         public ActionResult RecuperarContrasenna()
         {
@@ -205,5 +237,79 @@ namespace ProyectoFinalWeb.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Donar()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Donar(DonacionesEnt entidad)
+        {
+            try
+            {
+                if (homeModel.Donar(entidad) > 0)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.mensaje = "No se pudo Donar.";
+                    return View("Index");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return View("Index");
+            }
+        }
+
+
+        [HttpGet]
+        public ActionResult AgregarVoluntario()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AgregarVoluntario(VoluntariosEnt entidad)
+        {
+            try
+            {
+                if (homeModel.AgregarVoluntario(entidad) > 0)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.mensaje = "No se pudo realizar tu petición.";
+                    return View("Index");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                return View("Index");
+            }
+        }
+
     }
 }
+

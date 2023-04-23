@@ -1,10 +1,9 @@
 ﻿@model ProyectoFinalWeb.Entities.UsuariosEnt
-
+@model ProyectoFinalWeb.Models.HomeModel
 @{
-    ViewBag.Title = "RecuperarContrasenna";
+    ViewBag.Title = "GenerarContrasenna";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth px-0">
@@ -16,7 +15,7 @@
 
                         <h4>Recuperar Contraseña.</h4>
 
-                        @using (Html.BeginForm("RecuperarContrasenna", "Home", FormMethod.Post, new { @class = "pt-3" }))
+                        @using (Html.BeginForm("GenerarContrasenna", "Home", FormMethod.Post, new { @class = "pt-3" }))
                         {
                             <div class="form-group">
                                 @Html.TextBoxFor(m => m.email, new
@@ -28,37 +27,17 @@
                                     @onblur = "BuscarCorreo();"
                                 })
                             </div>
-                            <div class="form-group">
-                                @Html.TextBoxFor(Model => Model.password, new
-                           {
-                               @class = "form-control form-control-lg",
-                               @placeholder = "Contraseña temporal",
-                               @required = true,
-                               @type = "Password",
-                               @onblur = "validarContrasenna();"
-                           })
-                            </div>
 
-                            <div class="form-group">
-                                @Html.TextBoxFor(Model => Model.NuevaContrasenna, new
-                                {
-                                    @class = "form-control form-control-lg",
-                                    @placeholder = "Digite su nueva Contraseña",
-                               @required = true,
-                                    @type = "Password"
-                                })
-                            </div>
                             <div class="mt-3">
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <input type="submit" id="btnCambiar" @*disabled value="Cambiar"*@ class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                                        <input type="submit" id="btnProcesar" disabled value="Procesar" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
                                     </div>
                                 </div>
 
                             </div>
                         }
-
                     </div>
                 </div>
             </div>
@@ -66,4 +45,4 @@
     </div>
 </div>
 
-<script src="~/FuncionesJS/Recuperarpass.js"></script>
+<script src="~/Scripts/RecuperarUsuario.js"></script>

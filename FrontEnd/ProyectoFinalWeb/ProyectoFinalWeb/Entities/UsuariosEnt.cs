@@ -11,6 +11,8 @@ namespace ProyectoFinalWeb.Entities
         public long id { get; set; }
         public string nombre { get; set; }
 
+        public int voluntario_ID { get; set; }
+
         public string apellido { get; set; }
 
         public int edad { get; set; }
@@ -26,6 +28,8 @@ namespace ProyectoFinalWeb.Entities
         public int role { get; set; }
 
         public string ConfirmarContrasenna { get; set; }
+
+        public string NuevaContrasenna { get; set; }
 
         public bool estado { get; set; }
 

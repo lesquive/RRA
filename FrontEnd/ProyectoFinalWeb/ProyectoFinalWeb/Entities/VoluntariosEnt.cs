@@ -10,6 +10,8 @@ namespace ProyectoFinalWeb.Entities
     {
         public long id { get; set; }
 
+        public int voluntario_ID { get; set; }
+
         public string nombre { get; set; }
 
         public string apellido { get; set; }
